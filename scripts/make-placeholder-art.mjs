@@ -450,14 +450,21 @@ const look = {
   'pomegranate-molasses': ['bottle', '#4a1018'],
 };
 
+// The Al Wali logo badge, embedded so each packshot is a self-contained file.
+const logoData = 'data:image/png;base64,' + readFileSync(new URL('./logo-label.png', import.meta.url)).toString('base64');
+const logoImage = (cx, top, width) => {
+  const height = (width * 118) / 240;
+  return `<image href="${logoData}" x="${cx - width / 2}" y="${top}" width="${width}" height="${height}"/>`;
+};
+
 function label(x, y, w, h, p) {
   const name = esc(p.name);
   const fs = name.length > 18 ? 26 : 32;
   return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#faf6ee"/>` +
     `<rect x="${x}" y="${y}" width="${w}" height="12" fill="#a63a2b"/>` +
     `<rect x="${x}" y="${y + h - 12}" width="${w}" height="12" fill="#1f4d3a"/>` +
-    `<text x="${x + w / 2}" y="${y + 52}" text-anchor="middle" font-family="Georgia,serif" font-size="30" font-weight="700" fill="#1f4d3a" letter-spacing="4">AL WALI</text>` +
-    `<text x="${x + w / 2}" y="${y + h / 2 + 20}" text-anchor="middle" font-family="Georgia,serif" font-size="${fs}" fill="#2b2420">${name}</text>` +
+    logoImage(x + w / 2, y + 16, Math.min(w * 0.5, 170)) +
+    `<text x="${x + w / 2}" y="${y + h - 66}" text-anchor="middle" font-family="Georgia,serif" font-size="${fs}" fill="#2b2420">${name}</text>` +
     `<text x="${x + w / 2}" y="${y + h - 30}" text-anchor="middle" font-family="'Noto Naskh Arabic','Geeza Pro',serif" font-size="26" fill="#8a6a22" direction="rtl">${esc(p.nameAr)}</text>`;
 }
 

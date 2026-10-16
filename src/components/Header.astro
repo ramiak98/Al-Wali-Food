@@ -1,5 +1,4 @@
 ---
-import CedarMark from './CedarMark.astro';
 import Photo from './Photo.astro';
 import { categories } from '../data/catalog';
 const path = Astro.url.pathname;
@@ -15,12 +14,8 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
 ---
 <header class="sticky top-0 z-40 bg-cream/95 backdrop-blur border-b border-[#e6dccb]" style="top: env(safe-area-inset-top, 0px)">
   <div class="wrap flex items-center gap-6 h-[72px] md:h-[84px]">
-    <a href="/" class="flex items-center gap-2.5 text-cedar shrink-0" aria-label="Al Wali Food home">
-      <CedarMark class="w-9 h-9 md:w-10 md:h-10" />
-      <span class="leading-none">
-        <span class="block font-display font-semibold text-[1.55rem] md:text-[1.75rem] tracking-wide">Al Wali</span>
-        <span class="block text-[0.62rem] tracking-[0.32em] uppercase text-gold-text font-semibold mt-0.5">Food · Lebanon</span>
-      </span>
+    <a href="/" class="shrink-0" aria-label="Al Wali Food home">
+      <img src="/brand/logo-en.png" alt="Al Wali" width="480" height="236" class="h-[50px] md:h-[60px] w-auto" />
     </a>
 
     <nav class="hidden lg:flex items-center gap-1 ml-auto" aria-label="Main">
@@ -61,7 +56,7 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
 
   <div id="mobile-menu" class="lg:hidden fixed inset-0 z-50 bg-cedar text-white overflow-y-auto" hidden>
     <div class="wrap flex items-center justify-between h-[72px]">
-      <span class="flex items-center gap-2.5"><CedarMark class="w-9 h-9" /><span class="font-display font-semibold text-[1.55rem]">Al Wali</span></span>
+      <img src="/brand/logo-en.png" alt="Al Wali" width="480" height="236" class="h-[48px] w-auto" />
       <button type="button" class="-mr-2 p-2" aria-label="Close menu" data-menu-close>
         <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
       </button>

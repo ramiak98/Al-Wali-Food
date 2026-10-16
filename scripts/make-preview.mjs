@@ -10,7 +10,8 @@ const DIST = 'dist';
 const OUT = 'preview-build';
 rmSync(OUT, { recursive: true, force: true });
 mkdirSync(OUT, { recursive: true });
-cpSync(join(DIST, 'images'), join(OUT, 'images'), { recursive: true });
+// Copy the assets (photo stand-ins, logo, favicon); pages are rewritten below.
+for (const asset of ['images', 'brand', 'favicon.png']) cpSync(join(DIST, asset), join(OUT, asset), { recursive: true });
 
 const walk = (dir) =>
   readdirSync(dir).flatMap((f) => {
@@ -30,7 +31,7 @@ for (const file of pages) {
   let html = readFileSync(file, 'utf8');
 
   html = html.replace(/(href|src|data-fallback)="\/([^"]*)"/g, (_, attr, path) => {
-    if (path.startsWith('images/')) return `${attr}="${path}"`;
+    if (/\.(png|svg|jpe?g|webp|ico|pdf)$/i.test(path)) return `${attr}="${path}"`;
     const [p, hash] = path.split('#');
     return `${attr}="${flatName('/' + p)}${hash !== undefined ? '#' + hash : ''}"`;
   });

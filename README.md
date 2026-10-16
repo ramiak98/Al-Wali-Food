@@ -33,3 +33,10 @@ product photos arrive.
 - **Claude preview:** `PUBLIC_PHOTOS=off npm run build && node scripts/make-preview.mjs`
   writes a flat copy with relative links to `preview-build/`, used for the Claude
   Artifact preview (which cannot load outside images).
+
+## Logo
+
+The original logo file is `docs/brand/al-wali-logo.pdf` (a raster image inside a PDF).
+`public/brand/logo-en.png` and `logo-ar.png` are transparent cut-outs of its English and
+Arabic badges, and `public/favicon.png` is made from the Arabic badge. A vector (SVG or
+AI) version of the logo would look sharper on large screens.
