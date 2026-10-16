@@ -2,68 +2,15 @@
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import CategoryChecks from '../components/CategoryChecks.astro';
-// Sample listings for the demo only. Real stores will come from the CMS store list.
-const stores = [
-  { name: 'Sample Lebanese Market', city: 'Dearborn, MI', zip: '48126' },
-  { name: 'Sample Mediterranean Grocery', city: 'Brooklyn, NY', zip: '11201' },
-  { name: 'Sample International Foods', city: 'Paterson, NJ', zip: '07501' },
-  { name: 'Sample Middle Eastern Bakery & Market', city: 'Anaheim, CA', zip: '92804' },
-  { name: 'Sample Levant Pantry', city: 'Houston, TX', zip: '77036' },
-  { name: 'Sample Cedar Market', city: 'Boston, MA', zip: '02134' },
-  { name: 'Sample Olive Tree Grocery', city: 'Chicago, IL', zip: '60645' },
-  { name: 'Sample Phoenicia Foods', city: 'Jacksonville, FL', zip: '32256' },
-];
 ---
-<Base title="Where to Buy Al Wali Food | Find a Store Near You" fullTitle description="Find Al Wali Food Lebanese products at stores near you. Search by ZIP code or ask us directly.">
-  <PageHero photo="souk" eyebrow="Where to buy" title="Find Al Wali Food near you" subtitle="Our products are available at Middle Eastern, Mediterranean and international grocery stores across the US." />
-
-  <section class="wrap py-12 md:py-16 grid gap-8 lg:grid-cols-[1fr_1.15fr]">
-    <div class="min-w-0">
-      <form id="store-search" class="flex gap-2" role="search">
-        <label for="zip" class="sr-only">Enter your ZIP code or city</label>
-        <input id="zip" inputmode="numeric" placeholder="Enter your ZIP code or city" class="flex-1 min-w-0 min-h-[52px] px-4 rounded-[6px] border-[1.5px] border-[#cbbfa8] bg-white text-base" />
-        <button class="btn btn-cedar !min-h-[52px]">Search</button>
-      </form>
-      <p class="text-xs text-stone mt-2">Sample listings for the demo. Try 48126, 10001 or 90001.</p>
-      <ul id="store-list" class="mt-6 divide-y divide-[#e0d5c1] border-y border-[#e0d5c1]">
-        {stores.map((s) => (
-          <li class="py-4 flex items-start gap-4" data-zip={s.zip} data-city={s.city.toLowerCase()}>
-            <span class="mt-1 w-9 h-9 shrink-0 rounded-full bg-sumac text-white grid place-items-center text-sm font-semibold store-pin">•</span>
-            <div class="min-w-0">
-              <p class="font-semibold">{s.name}</p>
-              <p class="text-sm text-stone">{s.city} {s.zip}</p>
-            </div>
-            <a href="#" class="ml-auto text-sm link shrink-0">Directions</a>
-          </li>
-        ))}
-      </ul>
-      <div id="no-results" class="mt-6 rounded-[6px] bg-sand p-5" hidden>
-        <p class="font-semibold">We couldn't find a store near you yet.</p>
-        <p class="text-stone text-[0.95rem] mt-1">Tell us where you shop and we'll let you know the closest place to find Al Wali Food, and ask the store to carry us.</p>
-      </div>
-    </div>
-    <div class="relative rounded-[6px] overflow-hidden bg-[#dfe6dc] min-h-[320px] lg:min-h-[480px] border border-[#d0d8cc]" aria-hidden="true">
-      <svg class="absolute inset-0 w-full h-full" viewBox="0 0 600 480" preserveAspectRatio="xMidYMid slice">
-        <defs><pattern id="g" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#c9d3c4" stroke-width="1"/></pattern></defs>
-        <rect width="600" height="480" fill="url(#g)"/>
-        <path d="M40 300 C140 260 200 330 300 290 S470 210 580 250" stroke="#f6f3ea" stroke-width="16" fill="none"/>
-        <path d="M200 0 C220 120 180 260 240 480" stroke="#f6f3ea" stroke-width="12" fill="none"/>
-        <path d="M420 0 C400 160 470 300 430 480" stroke="#f6f3ea" stroke-width="10" fill="none"/>
-        <path d="M0 120 C160 140 380 90 600 130" stroke="#f6f3ea" stroke-width="8" fill="none"/>
-        <ellipse cx="510" cy="390" rx="120" ry="70" fill="#bcd3dd"/>
-        {[[150, 180], [260, 250], [330, 150], [460, 280], [380, 360], [120, 340]].map(([x, y]) => (
-          <g transform={`translate(${x} ${y})`}><path d="M0 0c-10-14-16-22-16-30a16 16 0 0 1 32 0c0 8-6 16-16 30Z" fill="#A63A2B"/><circle cy="-30" r="6" fill="#fff"/></g>
-        ))}
-      </svg>
-      <p class="absolute left-4 bottom-4 bg-cream/95 rounded-[6px] px-3 py-2 text-xs text-stone">Interactive map with store pins goes here</p>
-    </div>
-  </section>
+<Base title="Where to Buy Al Wali Food" fullTitle description="Ask Al Wali Food where to buy our Lebanese products near you.">
+  <PageHero photo="souk" eyebrow="Where to buy" title="Where to find Al Wali Food" subtitle="Our products are sold at Middle Eastern, Mediterranean and international grocery stores across the US. Ask us and we'll point you to the closest one." />
 
   <section class="bg-sand">
     <div class="wrap py-14 md:py-20 grid gap-10 lg:grid-cols-[1fr_1.4fr]">
       <div>
         <p class="eyebrow">Ask us where to buy</p>
-        <h2 class="text-[2.2rem] md:text-[2.8rem] mt-2">Can't find us nearby?</h2>
+        <h2 class="text-[2.2rem] md:text-[2.8rem] mt-2">Tell us where you shop</h2>
         <p class="text-stone mt-3">Send us your ZIP code and we'll point you to the closest store, or ask your favorite store to carry Al Wali Food.</p>
       </div>
       <form class="grid gap-4 sm:grid-cols-2 bg-cream rounded-[6px] p-6 md:p-8" data-demo-form data-success="We received your message and will get back to you within 2 business days with the closest place to find Al Wali Food.">
@@ -82,26 +29,4 @@ const stores = [
     </div>
   </section>
 
-  <script is:inline>
-    (function () {
-      var form = document.getElementById('store-search');
-      var input = document.getElementById('zip');
-      var items = Array.prototype.slice.call(document.querySelectorAll('#store-list li'));
-      var list = document.getElementById('store-list');
-      var none = document.getElementById('no-results');
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var q = input.value.trim().toLowerCase();
-        if (!q) { items.forEach(function (li) { li.hidden = false; }); none.hidden = true; return; }
-        var isZip = /^\d{3,5}$/.test(q);
-        var shown = items.filter(function (li) {
-          var match = isZip ? Math.abs(parseInt(li.dataset.zip, 10) - parseInt(q.padEnd(5, '0'), 10)) < 8000 : li.dataset.city.indexOf(q) >= 0;
-          li.hidden = !match;
-          return match;
-        });
-        if (isZip) shown.sort(function (a, b) { return Math.abs(a.dataset.zip - q) - Math.abs(b.dataset.zip - q); }).forEach(function (li) { list.appendChild(li); });
-        none.hidden = shown.length > 0;
-      });
-    })();
-  </script>
 </Base>
