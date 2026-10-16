@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Photo from '../components/Photo.astro';
+import CedarMark from '../components/CedarMark.astro';
+const values = [
+  { title: 'Authenticity', text: 'Recipes that taste the way they do in Lebanon, not an imitation.' },
+  { title: 'Quality', text: 'Carefully selected ingredients and production that meets US food safety requirements.' },
+  { title: 'Family', text: 'Food is how Lebanese families welcome people. We want every jar to feel like an invitation.' },
+  { title: 'Partnership', text: 'We work closely with distributors and retailers so our products are always on the shelf.' },
+];
+const numbers = [
+  ['25+', 'products'],
+  ['5', 'product families'],
+  ['[XX]', 'US states'],
+  ['[XX]', 'distribution partners'],
+];
+---
+<Base title="About Al Wali Food | Lebanese Heritage, American Tables" fullTitle description="Learn the story behind Al Wali Food, a Lebanese food brand bringing authentic pickles, dairy, olive oil, pastes and sweets from Lebanon to the USA.">
+  <PageHero photo="baalbek-bacchus" eyebrow="About us" title="Our story" subtitle="A Lebanese table, shared with America." tall />
+
+  <section class="wrap py-16 md:py-24 grid gap-10 md:grid-cols-[1fr_1.3fr]">
+    <div>
+      <p class="eyebrow">Who we are</p>
+      <h2 class="text-[2.3rem] md:text-[3rem] mt-2">The foods we grew up with, made with the same care</h2>
+    </div>
+    <div class="text-stone space-y-5 text-[1.05rem] min-w-0">
+      <p>Al Wali Food was founded in [YEAR] by [FOUNDER / FAMILY NAME] with a simple idea: the foods we grew up with in Lebanon deserve a place in American kitchens, made with the same care and the same honest ingredients.</p>
+      <p>Today we bring a full Lebanese pantry to the United States, from crunchy pickled turnips and creamy labneh to golden olive oil, rich pepper paste and sweet halawa. Our products reach shoppers through a network of trusted distributors and stores across [STATES / REGIONS].</p>
+    </div>
+  </section>
+
+  <section class="grid md:grid-cols-3 gap-1 bg-ink">
+    <Photo name="bekaa-valley" width={1000} class="w-full h-[240px] md:h-[380px]" />
+    <Photo name="olive-grove" width={1000} class="w-full h-[240px] md:h-[380px]" />
+    <Photo name="sun-drying" width={1000} class="w-full h-[240px] md:h-[380px]" />
+  </section>
+
+  <section class="bg-sand">
+    <div class="wrap py-16 md:py-24 grid gap-10 md:grid-cols-[1fr_1.3fr]">
+      <div>
+        <p class="eyebrow">Where our flavors come from</p>
+        <h2 class="text-[2.3rem] md:text-[3rem] mt-2">From the Bekaa Valley and beyond</h2>
+      </div>
+      <div class="text-stone space-y-5 text-[1.05rem] min-w-0">
+        <p>Lebanon is small, but its land is generous. The Bekaa Valley, watched over by the ancient temples of Baalbek, has fed the region for thousands of years with its wheat, vegetables and vines. In the hills, olive trees, some centuries old, give the oil at the heart of every Lebanese meal.</p>
+        <p>Our recipes follow the rhythm of that land: vegetables pickled at the peak of the season, milk turned into labneh the traditional way, tomatoes and peppers slow-cooked into deep, rich pastes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap py-16 md:py-24">
+    <p class="eyebrow">What we stand for</p>
+    <h2 class="text-[2.3rem] md:text-[3rem] mt-2 mb-10">Four promises in every jar</h2>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {values.map((v) => (
+        <div class="border-t-2 border-gold pt-5">
+          <CedarMark class="w-7 h-7 text-cedar" />
+          <h3 class="text-[1.7rem] mt-3 text-cedar">{v.title}</h3>
+          <p class="text-stone mt-2 text-[0.98rem]">{v.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-cedar text-white">
+    <div class="wrap py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+      {numbers.map(([n, l]) => (
+        <div>
+          <p class="font-display text-[3rem] md:text-[3.6rem] font-semibold leading-none tabular-nums">{n}</p>
+          <p class="text-white/80 mt-2 text-sm uppercase tracking-[0.14em]">{l}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap py-16 md:py-24 text-center flex flex-col items-center">
+    <CedarMark class="w-10 h-10 text-gold" />
+    <h2 class="text-[2.4rem] md:text-[3.2rem] mt-4">Bring Lebanon home</h2>
+    <div class="mt-8 flex flex-wrap gap-3 justify-center">
+      <a href="/products/" class="btn btn-cedar">Explore our products</a>
+      <a href="/where-to-buy/" class="btn btn-sumac">Find a store</a>
+    </div>
+  </section>
+</Base>

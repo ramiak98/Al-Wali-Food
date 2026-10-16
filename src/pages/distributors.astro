@@ -1,0 +1,81 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import CategoryChecks from '../components/CategoryChecks.astro';
+import { allProducts } from '../data/catalog';
+const reasons = [
+  { title: 'A complete Lebanese range', text: 'Pickles, dairy, sweets, olive oil and pastes. Five categories, one supplier.' },
+  { title: 'Consistent supply', text: '[Reliable import schedule / US warehouse in STATE] so your shelves stay full.' },
+  { title: 'Shelf-ready packaging', text: 'US-compliant labels with English nutrition facts and allergen statements.' },
+  { title: 'Marketing support', text: 'Product photos, shelf talkers and social content for your stores.' },
+];
+const productCats = Object.fromEntries(allProducts.map((p) => [p.slug, [p.category, p.name]]));
+---
+<Base title="Wholesale Lebanese Food Supplier | Distributors & Retailers | Al Wali Food" fullTitle description="Carry Al Wali Food's authentic Lebanese pickles, dairy, olive oil, pastes and sweets. Contact us for our catalog, case packs and availability.">
+  <PageHero photo="warehouse" eyebrow="For distributors & retailers" title="Partner with Al Wali Food" subtitle="Bring authentic Lebanese products to your customers. We work directly with distributors and retailers across the United States.">
+    <a href="#inquiry" class="btn btn-sumac mt-6">Send an inquiry</a>
+  </PageHero>
+
+  <section class="wrap py-16 md:py-20">
+    <p class="eyebrow">Why partner with us</p>
+    <h2 class="text-[2.3rem] md:text-[3rem] mt-2 mb-10">Lebanese flavor your customers ask for</h2>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {reasons.map((r, i) => (
+        <div class="rounded-[6px] bg-white/70 border border-[#e6dccb] p-6">
+          <p class="font-display text-[2.4rem] text-gold leading-none">{['I', 'II', 'III', 'IV'][i]}</p>
+          <h3 class="text-[1.5rem] mt-3 text-cedar">{r.title}</h3>
+          <p class="text-stone mt-2 text-[0.96rem]">{r.text}</p>
+        </div>
+      ))}
+    </div>
+    <div class="mt-10 rounded-[6px] bg-sand p-6 flex flex-col sm:flex-row sm:items-center gap-4">
+      <p class="flex-1"><strong>Product catalog (PDF)</strong><br /><span class="text-stone text-sm">Full range with case packs, UPCs and shelf life. Available once the catalog is ready.</span></p>
+      <span class="btn btn-ghost opacity-60 cursor-not-allowed" aria-disabled="true">Download catalog</span>
+    </div>
+  </section>
+
+  <section id="inquiry" class="bg-cedar text-white scroll-mt-24">
+    <div class="wrap py-14 md:py-20 grid gap-10 lg:grid-cols-[1fr_1.6fr]">
+      <div>
+        <p class="eyebrow !text-[#e2c77f]">Inquiry &amp; order request</p>
+        <h2 class="text-[2.3rem] md:text-[3rem] mt-2">Let's stock your shelves</h2>
+        <p class="text-white/85 mt-3">Request our catalog and pricing, place an order or become a distributor. Our sales team replies within 1 to 2 business days.</p>
+        <p id="prefill-note" class="mt-6 rounded-[6px] bg-white/10 p-4 text-sm" hidden></p>
+      </div>
+      <form class="grid gap-4 sm:grid-cols-2 bg-cream text-ink rounded-[6px] p-6 md:p-8" data-demo-form data-success="Thank you for your interest in Al Wali Food. Our sales team will contact you within 1 to 2 business days.">
+        <div class="field"><label for="d-name">Full name <span class="req">*</span></label><input id="d-name" required autocomplete="name" /></div>
+        <div class="field"><label for="d-company">Company name <span class="req">*</span></label><input id="d-company" required autocomplete="organization" /></div>
+        <div class="field"><label for="d-type">Business type <span class="req">*</span></label>
+          <select id="d-type" required><option value="">Choose one</option><option>Distributor / Wholesaler</option><option>Retail store / chain</option><option>Restaurant / foodservice</option><option>Other</option></select></div>
+        <div class="field"><label for="d-email">Business email <span class="req">*</span></label><input id="d-email" type="email" required autocomplete="email" /></div>
+        <div class="field"><label for="d-phone">Phone <span class="req">*</span></label><input id="d-phone" type="tel" required autocomplete="tel" /></div>
+        <div class="field"><label for="d-city">City &amp; state <span class="req">*</span></label><input id="d-city" required /></div>
+        <div class="field"><label for="d-web">Website</label><input id="d-web" type="url" placeholder="https://" /></div>
+        <div class="field"><label for="d-inquiry">Inquiry type <span class="req">*</span></label>
+          <select id="d-inquiry" required><option value="">Choose one</option><option>Request catalog &amp; pricing</option><option>Place an order</option><option>Become a distributor</option><option>Other</option></select></div>
+        <div class="sm:col-span-2"><CategoryChecks name="d-products" legend="Products of interest" /></div>
+        <div class="field"><label for="d-volume">Estimated monthly volume</label>
+          <select id="d-volume"><option>Not sure</option><option>Under 10 cases</option><option>10–50 cases</option><option>50–200 cases</option><option>200+ cases</option></select></div>
+        <div class="field sm:col-span-2"><label for="d-msg">Message / order details</label><textarea id="d-msg"></textarea></div>
+        <div class="sm:col-span-2 flex flex-col gap-2">
+          <button class="btn btn-sumac self-start">Send inquiry</button>
+          <p class="text-xs text-stone">Orders placed through this form are requests only. Our team will confirm availability, pricing and delivery with you directly. See our <a class="link" href="/legal/privacy/">Privacy Policy</a>.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+  <script is:inline define:vars={{ productCats }}>
+    var m = location.hash.match(/^#p-([a-z0-9-]+)$/);
+    if (m && productCats[m[1]]) {
+      var info = productCats[m[1]];
+      var box = document.querySelector('[data-cat="' + info[0] + '"]');
+      if (box) box.checked = true;
+      var msg = document.getElementById('d-msg');
+      if (msg) msg.value = 'I would like to request: ' + info[1];
+      var note = document.getElementById('prefill-note');
+      note.textContent = 'Requesting: ' + info[1] + '. We pre-filled the form for you.';
+      note.hidden = false;
+      document.getElementById('inquiry').scrollIntoView();
+    }
+  </script>
+</Base>

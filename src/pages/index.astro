@@ -1,0 +1,209 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import ProductCard from '../components/ProductCard.astro';
+import CedarMark from '../components/CedarMark.astro';
+import { categories, featured } from '../data/catalog';
+import type { PhotoKey } from '../data/photos';
+
+const slides: PhotoKey[] = ['baalbek-jupiter', 'bekaa-valley', 'olive-harvest'];
+const promises = [
+  { title: 'Authentically Lebanese', line: "Traditional recipes from Lebanon's kitchens.", icon: 'cedar' },
+  { title: 'Simple ingredients', line: 'Real ingredients you can pronounce.', icon: 'olive' },
+  { title: 'Quality you can trust', line: 'Produced to strict food safety standards.', icon: 'shield' },
+];
+const gallery: { name: PhotoKey; cls: string }[] = [
+  { name: 'baalbek-detail', cls: 'md:col-span-2 md:row-span-2' },
+  { name: 'mezze', cls: '' },
+  { name: 'cedars', cls: '' },
+  { name: 'souk', cls: '' },
+  { name: 'pickle-jars', cls: '' },
+];
+---
+<Base title="Al Wali Food | Authentic Lebanese Pickles, Dairy, Olive Oil & More" fullTitle description="Authentic Lebanese foods from the Bekaa Valley to your table. Discover Al Wali Food pickles, labneh, olive oil, pastes and sweets, and find a store near you.">
+  <!-- 1. Hero -->
+  <section class="relative isolate overflow-hidden bg-cedar-dark min-h-[560px] md:min-h-[680px] flex items-center" aria-label="Welcome">
+    {slides.map((s, i) => (
+      <div class={`hero-slide absolute inset-0 -z-10 transition-opacity duration-[2000ms] ${i === 0 ? 'opacity-100' : 'opacity-0'}`} aria-hidden={i === 0 ? undefined : 'true'}>
+        <Photo name={s} eager={i === 0} width={2000} class="w-full h-full hero-kenburns" />
+      </div>
+    ))}
+    <div class="absolute inset-0 shade-left -z-10"></div>
+    <div class="wrap py-20 text-white">
+      <div class="max-w-2xl fade-up">
+        <p class="eyebrow !text-[#f0dca8] flex items-center gap-2"><CedarMark class="w-5 h-5" /> Product of Lebanon</p>
+        <h1 class="mt-4 text-[2.7rem] leading-[1.05] md:text-[4.4rem]">From the heart of Lebanon to your table</h1>
+        <p class="mt-5 text-lg md:text-xl text-white/90 max-w-xl">Pickles, labneh, olive oil, pastes and sweets made the way Lebanese families have made them for generations.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="/products/" class="btn btn-sumac">Explore our products</a>
+          <a href="/where-to-buy/" class="btn btn-ghost-light">Find a store</a>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-6 right-0 left-0">
+      <div class="wrap flex gap-2 justify-end" aria-hidden="true">
+        {slides.map((_, i) => <span class={`hero-dot h-1 rounded-full transition-all duration-500 ${i === 0 ? 'w-10 bg-white' : 'w-5 bg-white/45'}`}></span>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Brand promise -->
+  <section class="bg-sand">
+    <div class="wrap py-10 grid gap-8 sm:grid-cols-3">
+      {promises.map((p) => (
+        <div class="flex gap-4 items-start">
+          <span class="shrink-0 w-12 h-12 rounded-full bg-cream grid place-items-center text-cedar">
+            {p.icon === 'cedar' && <CedarMark class="w-7 h-7" />}
+            {p.icon === 'olive' && <svg class="w-7 h-7" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 27C12 20 18 13 27 5" stroke-linecap="round"/><ellipse cx="12" cy="15" rx="5" ry="2.4" transform="rotate(-50 12 15)" fill="currentColor" stroke="none"/><ellipse cx="20" cy="15" rx="5" ry="2.4" transform="rotate(40 20 15)" fill="currentColor" stroke="none"/><ellipse cx="17" cy="9" rx="4.5" ry="2.2" transform="rotate(-50 17 9)" fill="currentColor" stroke="none"/><circle cx="9" cy="22" r="2.6" fill="#B08D3C" stroke="none"/></svg>}
+            {p.icon === 'shield' && <svg class="w-7 h-7" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M16 4 6 8v7c0 6.5 4.3 11 10 13 5.7-2 10-6.5 10-13V8L16 4Z"/><path d="m11.5 16 3.2 3.2 6-6.4" stroke-linecap="round"/></svg>}
+          </span>
+          <div>
+            <h2 class="text-[1.45rem] text-cedar">{p.title}</h2>
+            <p class="text-stone text-[0.95rem]">{p.line}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 3. Shop by category -->
+  <section class="wrap py-16 md:py-24">
+    <div class="flex flex-col md:flex-row md:items-end gap-4 justify-between mb-10">
+      <div>
+        <p class="eyebrow">Our pantry</p>
+        <h2 class="text-[2.3rem] md:text-[3rem] mt-2">Five families of products, one taste of home</h2>
+      </div>
+      <a href="/products/" class="link shrink-0">View all products</a>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+      {categories.map((c, i) => (
+        <a href={`/products/${c.slug}/`} class={`group relative isolate overflow-hidden rounded-[6px] min-h-[280px] md:min-h-[340px] flex items-end ${i < 2 ? 'lg:col-span-3' : 'lg:col-span-2'}`}>
+          <Photo name={c.photo} width={1000} class="absolute inset-0 w-full h-full -z-10 group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 shade-bottom -z-10"></div>
+          <div class="p-6 text-white">
+            <p class="font-arabic text-[#f0dca8] text-lg" lang="ar" dir="rtl">{c.nameAr}</p>
+            <h3 class="text-[1.9rem] md:text-[2.2rem]">{c.name}</h3>
+            <p class="text-white/85 text-[0.95rem] mt-1 max-w-sm">{c.line}</p>
+            <span class="inline-flex items-center gap-1 mt-3 text-sm font-semibold border-b border-white/60 group-hover:border-white">View products →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- 4. Story teaser -->
+  <section class="bg-sand">
+    <div class="wrap py-16 md:py-24 grid gap-10 md:grid-cols-2 md:items-center">
+      <div class="relative">
+        <Photo name="bekaa-produce" width={1200} class="w-full aspect-[4/5] md:aspect-[5/6] rounded-[6px]" />
+        <div class="hidden md:block absolute -bottom-6 -right-6 w-40 h-40 rounded-[6px] overflow-hidden border-4 border-sand"><Photo name="olive-grove" width={400} class="w-full h-full" /></div>
+      </div>
+      <div class="min-w-0">
+        <p class="eyebrow">Our story</p>
+        <h2 class="text-[2.3rem] md:text-[3rem] mt-2">Rooted in the Bekaa Valley</h2>
+        <div class="frieze my-6 max-w-[220px]"></div>
+        <p class="text-stone">Between the mountains of Lebanon lies the Bekaa Valley, home to the temples of Baalbek and some of the most fertile land in the Middle East. It is where our story begins.</p>
+        <p class="text-stone mt-4">At Al Wali Food we bring that heritage to American kitchens, with products that taste the way they do at a Lebanese family table.</p>
+        <a href="/about/" class="btn btn-cedar mt-8">Our story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Featured products -->
+  <section class="py-16 md:py-24">
+    <div class="wrap flex items-end justify-between gap-4 mb-8">
+      <div>
+        <p class="eyebrow">Sahtein</p>
+        <h2 class="text-[2.3rem] md:text-[3rem] mt-2">Family favorites</h2>
+      </div>
+      <div class="hidden sm:flex gap-2">
+        <button type="button" class="w-11 h-11 rounded-full border border-cedar text-cedar grid place-items-center hover:bg-cedar hover:text-white" aria-label="Scroll favorites left" data-scroll="-1">←</button>
+        <button type="button" class="w-11 h-11 rounded-full border border-cedar text-cedar grid place-items-center hover:bg-cedar hover:text-white" aria-label="Scroll favorites right" data-scroll="1">→</button>
+      </div>
+    </div>
+    <div class="wrap">
+      <div id="featured-track" class="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 [scrollbar-width:thin]">
+        {featured.map((p) => <div class="snap-start shrink-0 w-[68%] sm:w-[42%] md:w-[30%] lg:w-[23%]"><ProductCard product={p} /></div>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Lebanon gallery -->
+  <section class="bg-ink text-cream">
+    <div class="wrap py-16 md:py-24">
+      <div class="max-w-2xl mb-10">
+        <p class="eyebrow !text-[#d9bd73]">Lebanon</p>
+        <h2 class="text-[2.3rem] md:text-[3rem] mt-2">A taste of where we come from</h2>
+        <p class="mt-3 text-[#d8cdb9]">Every jar carries a little of Lebanon: its sun, its soil, its hospitality.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 gap-3 md:h-[560px]">
+        {gallery.map((g) => (
+          <figure class={`relative overflow-hidden rounded-[6px] min-h-[160px] ${g.cls}`}>
+            <Photo name={g.name} width={1000} class="absolute inset-0 w-full h-full hover:scale-105 transition-transform duration-700" />
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Two paths -->
+  <section class="wrap py-16 md:py-24 grid gap-5 md:grid-cols-2">
+    <div class="rounded-[6px] bg-sand p-8 md:p-10 flex flex-col">
+      <p class="eyebrow">Shoppers</p>
+      <h2 class="text-[2rem] md:text-[2.4rem] mt-2">Looking for Al Wali Food?</h2>
+      <p class="text-stone mt-3 flex-1">Find a store near you, or ask us and we'll point you to the closest one.</p>
+      <a href="/where-to-buy/" class="btn btn-sumac mt-6 self-start">Find a store</a>
+    </div>
+    <div class="rounded-[6px] bg-cedar text-white p-8 md:p-10 flex flex-col">
+      <p class="eyebrow !text-[#e2c77f]">Business</p>
+      <h2 class="text-[2rem] md:text-[2.4rem] mt-2">Carry Al Wali Food</h2>
+      <p class="text-white/85 mt-3 flex-1">Distributors and retailers: request our catalog, pricing and availability.</p>
+      <a href="/distributors/" class="btn btn-ghost-light mt-6 self-start">Become a partner</a>
+    </div>
+  </section>
+
+  <!-- 8. Social -->
+  <section class="border-t border-[#e6dccb]">
+    <div class="wrap py-12 flex flex-col md:flex-row md:items-center gap-4 md:gap-10">
+      <div class="flex-1">
+        <h2 class="text-[2rem]">Follow the flavor</h2>
+        <p class="text-stone">Recipes, behind the scenes and Lebanese food culture.</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a href="#" class="btn btn-ghost">Instagram</a>
+        <a href="#" class="btn btn-ghost">TikTok</a>
+        <a href="#" class="btn btn-ghost">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    @media (prefers-reduced-motion: no-preference) {
+      :global(.hero-slide.opacity-100 .hero-kenburns) { animation: kenburns 9s ease-out both; }
+    }
+    @keyframes kenburns { from { transform: scale(1.08); } to { transform: scale(1); } }
+  </style>
+  <script is:inline>
+    (function () {
+      var slides = document.querySelectorAll('.hero-slide');
+      var dots = document.querySelectorAll('.hero-dot');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var i = 0;
+      if (slides.length > 1 && !reduce) {
+        setInterval(function () {
+          slides[i].classList.replace('opacity-100', 'opacity-0');
+          dots[i].className = dots[i].className.replace('w-10 bg-white', 'w-5 bg-white/45');
+          i = (i + 1) % slides.length;
+          slides[i].classList.replace('opacity-0', 'opacity-100');
+          dots[i].className = dots[i].className.replace('w-5 bg-white/45', 'w-10 bg-white');
+        }, 6000);
+      }
+      var track = document.getElementById('featured-track');
+      document.querySelectorAll('[data-scroll]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          track.scrollBy({ left: Number(b.dataset.scroll) * track.clientWidth * 0.8, behavior: 'smooth' });
+        });
+      });
+    })();
+  </script>
+</Base>

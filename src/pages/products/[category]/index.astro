@@ -1,0 +1,50 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+import { categories, type Category } from '../../../data/catalog';
+
+export function getStaticPaths() {
+  return categories.map((c) => ({ params: { category: c.slug }, props: { cat: c } }));
+}
+const { cat } = Astro.props as { cat: Category };
+---
+<Base title={cat.seoTitle} description={cat.intro}>
+  <PageHero photo={cat.photo} eyebrow={cat.nameAr} title={cat.name} subtitle={cat.intro} />
+  <nav class="wrap pt-6 text-sm text-stone flex flex-wrap gap-x-2" aria-label="Breadcrumb">
+    <a class="hover:text-cedar" href="/products/">Products</a> <span aria-hidden="true">›</span> <span class="text-ink">{cat.name}</span>
+  </nav>
+  <section class="wrap py-10 md:py-14">
+    <div class="flex flex-wrap gap-2 mb-8" role="group" aria-label="Filter by type">
+      <button type="button" class="chip is-on" data-filter="all" aria-pressed="true">All</button>
+      {cat.subcategories.map((s) => <button type="button" id={s.slug} class="chip" data-filter={s.slug} aria-pressed="false">{s.name}</button>)}
+    </div>
+    <div class="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4" id="product-grid">
+      {cat.products.map((p) => <ProductCard product={p} />)}
+    </div>
+    <p class="text-stone mt-6 text-sm hidden" id="empty-note">More products in this range are coming soon.</p>
+  </section>
+  <CtaBand title="Stock Al Wali Food in your stores" text="We work with distributors and retailers across the US. Request our full catalog, case packs and availability." href="/distributors/" button="Become a partner" />
+  <style>
+    .chip { min-height: 40px; padding: 0.4rem 1rem; border-radius: 999px; border: 1.5px solid #cbbfa8; font-size: 0.9rem; font-weight: 500; background: #fff; }
+    .chip:hover { border-color: var(--color-cedar); }
+    .chip.is-on { background: var(--color-cedar); border-color: var(--color-cedar); color: #fff; }
+  </style>
+  <script is:inline>
+    (function () {
+      var chips = document.querySelectorAll('[data-filter]');
+      var cards = document.querySelectorAll('#product-grid [data-sub]');
+      var note = document.getElementById('empty-note');
+      function apply(f) {
+        var shown = 0;
+        chips.forEach(function (c) { var on = c.dataset.filter === f; c.classList.toggle('is-on', on); c.setAttribute('aria-pressed', String(on)); });
+        cards.forEach(function (card) { var show = f === 'all' || card.dataset.sub === f; card.hidden = !show; if (show) shown++; });
+        note.classList.toggle('hidden', shown > 0);
+      }
+      chips.forEach(function (c) { c.addEventListener('click', function () { apply(c.dataset.filter); }); });
+      var h = location.hash.slice(1);
+      if (h && document.querySelector('[data-filter="' + h + '"]')) apply(h);
+    })();
+  </script>
+</Base>

@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Photo from '../../components/Photo.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { categories } from '../../data/catalog';
+---
+<Base title="Our Products | Al Wali Food Lebanese Pantry" fullTitle description="Browse Al Wali Food's Lebanese pickles, dairy, olive oil, pastes, confectionery and desserts.">
+  <PageHero photo="mezze" eyebrow="Our products" title="The Lebanese pantry" subtitle="From the mezze table to dessert, discover everything we bring from Lebanon." />
+  <section class="wrap py-16 md:py-20 flex flex-col gap-6">
+    {categories.map((c, i) => (
+      <a href={`/products/${c.slug}/`} class={`group grid md:grid-cols-2 rounded-[6px] overflow-hidden bg-white/60 border border-[#e6dccb] hover:border-gold transition-colors`}>
+        <div class={`overflow-hidden min-h-[240px] md:min-h-[320px] relative ${i % 2 ? 'md:order-2' : ''}`}>
+          <Photo name={c.photo} width={1200} class="absolute inset-0 w-full h-full group-hover:scale-105 transition-transform duration-700" />
+        </div>
+        <div class="p-8 md:p-12 flex flex-col justify-center min-w-0">
+          <p class="font-arabic text-gold-text text-xl" lang="ar" dir="rtl">{c.nameAr}</p>
+          <h2 class="text-[2.3rem] md:text-[2.8rem] text-cedar">{c.name}</h2>
+          <p class="text-stone mt-3">{c.line}</p>
+          <p class="text-sm text-stone mt-4">{c.products.length} products · {c.subcategories.map((s) => s.name).join(' · ')}</p>
+          <span class="btn btn-ghost mt-6 self-start group-hover:bg-cedar group-hover:text-white">View products</span>
+        </div>
+      </a>
+    ))}
+  </section>
+  <CtaBand tone="sand" title="Not sure where to find us?" text="Our products are sold at Middle Eastern, Mediterranean and international grocery stores across the US." href="/where-to-buy/" button="Find a store" />
+</Base>

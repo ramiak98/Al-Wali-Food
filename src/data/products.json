@@ -1,0 +1,688 @@
+{
+  "_note": "PLACEHOLDER catalog. Category names come from Rami; subcategories and products are examples to replace with the real list. Do not publish placeholder products.",
+  "categories": [
+    {
+      "slug": "pickles",
+      "name": "Pickles",
+      "nameAr": "مخللات",
+      "subcategories": [
+        {
+          "slug": "cucumber-pickles",
+          "name": "Cucumber pickles"
+        },
+        {
+          "slug": "turnip-pickles",
+          "name": "Turnip pickles (lefet)"
+        },
+        {
+          "slug": "mixed-pickles",
+          "name": "Mixed pickles"
+        },
+        {
+          "slug": "peppers",
+          "name": "Peppers"
+        },
+        {
+          "slug": "olives-in-brine",
+          "name": "Olives in brine"
+        }
+      ],
+      "products": [
+        {
+          "slug": "pickled-cucumbers",
+          "placeholder": true,
+          "name": "Pickled Cucumbers",
+          "nameAr": "خيار مخلل",
+          "subcategory": "cucumber-pickles",
+          "sizes": [
+            "1 kg jar"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "pickled-turnips",
+          "placeholder": true,
+          "name": "Pickled Turnips",
+          "nameAr": "لفت مخلل",
+          "subcategory": "turnip-pickles",
+          "sizes": [
+            "1 kg jar"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "mixed-pickles",
+          "placeholder": true,
+          "name": "Mixed Pickles",
+          "nameAr": "مخلل مشكل",
+          "subcategory": "mixed-pickles",
+          "sizes": [
+            "1 kg jar"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "pickled-hot-peppers",
+          "placeholder": true,
+          "name": "Pickled Hot Peppers",
+          "nameAr": "فليفلة حرة مخللة",
+          "subcategory": "peppers",
+          "sizes": [
+            "650 g jar"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "green-olives-in-brine",
+          "placeholder": true,
+          "name": "Green Olives in Brine",
+          "nameAr": "زيتون أخضر",
+          "subcategory": "olives-in-brine",
+          "sizes": [
+            "650 g jar"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        }
+      ]
+    },
+    {
+      "slug": "dairy",
+      "name": "Dairy",
+      "nameAr": "ألبان وأجبان",
+      "subcategories": [
+        {
+          "slug": "labneh",
+          "name": "Labneh"
+        },
+        {
+          "slug": "labneh-balls",
+          "name": "Labneh balls in oil"
+        },
+        {
+          "slug": "cheeses",
+          "name": "Cheeses"
+        },
+        {
+          "slug": "ghee",
+          "name": "Ghee"
+        }
+      ],
+      "products": [
+        {
+          "slug": "labneh",
+          "placeholder": true,
+          "name": "Labneh",
+          "nameAr": "لبنة",
+          "subcategory": "labneh",
+          "sizes": [
+            "400 g tub"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "labneh-balls-in-olive-oil",
+          "placeholder": true,
+          "name": "Labneh Balls in Olive Oil",
+          "nameAr": "لبنة مكعزلة بالزيت",
+          "subcategory": "labneh-balls",
+          "sizes": [
+            "500 g jar"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "akkawi-cheese",
+          "placeholder": true,
+          "name": "Akkawi Cheese",
+          "nameAr": "جبنة عكاوي",
+          "subcategory": "cheeses",
+          "sizes": [
+            "400 g pack"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "halloumi-cheese",
+          "placeholder": true,
+          "name": "Halloumi Cheese",
+          "nameAr": "جبنة حلوم",
+          "subcategory": "cheeses",
+          "sizes": [
+            "250 g pack"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "ghee",
+          "placeholder": true,
+          "name": "Ghee",
+          "nameAr": "سمنة",
+          "subcategory": "ghee",
+          "sizes": [
+            "500 g jar"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        }
+      ]
+    },
+    {
+      "slug": "confectionery-desserts",
+      "name": "Confectionery & Desserts",
+      "nameAr": "حلويات",
+      "subcategories": [
+        {
+          "slug": "halawa",
+          "name": "Halawa (tahini halva)"
+        },
+        {
+          "slug": "maamoul",
+          "name": "Maamoul"
+        },
+        {
+          "slug": "turkish-delight",
+          "name": "Turkish delight (rahat)"
+        },
+        {
+          "slug": "nougat",
+          "name": "Nougat"
+        },
+        {
+          "slug": "syrups",
+          "name": "Syrups"
+        }
+      ],
+      "products": [
+        {
+          "slug": "plain-halawa",
+          "placeholder": true,
+          "name": "Plain Halawa",
+          "nameAr": "حلاوة سادة",
+          "subcategory": "halawa",
+          "sizes": [
+            "450 g tub"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "pistachio-halawa",
+          "placeholder": true,
+          "name": "Pistachio Halawa",
+          "nameAr": "حلاوة بالفستق",
+          "subcategory": "halawa",
+          "sizes": [
+            "450 g tub"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "date-maamoul",
+          "placeholder": true,
+          "name": "Date Maamoul",
+          "nameAr": "معمول بالتمر",
+          "subcategory": "maamoul",
+          "sizes": [
+            "500 g box"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "rose-turkish-delight",
+          "placeholder": true,
+          "name": "Rose Turkish Delight",
+          "nameAr": "راحة بالورد",
+          "subcategory": "turkish-delight",
+          "sizes": [
+            "400 g box"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "pistachio-nougat",
+          "placeholder": true,
+          "name": "Pistachio Nougat",
+          "nameAr": "نوغا بالفستق",
+          "subcategory": "nougat",
+          "sizes": [
+            "200 g box"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "rose-water",
+          "placeholder": true,
+          "name": "Rose Water",
+          "nameAr": "ماء الورد",
+          "subcategory": "syrups",
+          "sizes": [
+            "300 ml bottle"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "orange-blossom-water",
+          "placeholder": true,
+          "name": "Orange Blossom Water",
+          "nameAr": "ماء الزهر",
+          "subcategory": "syrups",
+          "sizes": [
+            "300 ml bottle"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        }
+      ]
+    },
+    {
+      "slug": "olive-oil",
+      "name": "Olive & Oil",
+      "nameAr": "زيت وزيتون",
+      "subcategories": [
+        {
+          "slug": "extra-virgin-olive-oil",
+          "name": "Extra virgin olive oil"
+        },
+        {
+          "slug": "olive-oil-blends",
+          "name": "Olive oil blends"
+        },
+        {
+          "slug": "table-olives",
+          "name": "Table olives"
+        },
+        {
+          "slug": "tahini",
+          "name": "Tahini"
+        }
+      ],
+      "products": [
+        {
+          "slug": "extra-virgin-olive-oil",
+          "placeholder": true,
+          "name": "Extra Virgin Olive Oil",
+          "nameAr": "زيت زيتون بكر ممتاز",
+          "subcategory": "extra-virgin-olive-oil",
+          "sizes": [
+            "1 L bottle"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "olive-oil-blend",
+          "placeholder": true,
+          "name": "Olive Oil Blend",
+          "nameAr": "زيت زيتون مخلوط",
+          "subcategory": "olive-oil-blends",
+          "sizes": [
+            "1 L bottle"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "black-olives",
+          "placeholder": true,
+          "name": "Black Olives",
+          "nameAr": "زيتون أسود",
+          "subcategory": "table-olives",
+          "sizes": [
+            "650 g jar"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "tahini",
+          "placeholder": true,
+          "name": "Tahini",
+          "nameAr": "طحينة",
+          "subcategory": "tahini",
+          "sizes": [
+            "450 g jar"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        }
+      ]
+    },
+    {
+      "slug": "pastes",
+      "name": "Pastes",
+      "nameAr": "معاجين ودبس",
+      "subcategories": [
+        {
+          "slug": "tomato-paste",
+          "name": "Tomato paste"
+        },
+        {
+          "slug": "red-pepper-paste",
+          "name": "Red pepper paste"
+        },
+        {
+          "slug": "hot-pepper-paste",
+          "name": "Hot pepper paste"
+        },
+        {
+          "slug": "pomegranate-molasses",
+          "name": "Pomegranate molasses"
+        }
+      ],
+      "products": [
+        {
+          "slug": "tomato-paste",
+          "placeholder": true,
+          "name": "Tomato Paste",
+          "nameAr": "معجون بندورة",
+          "subcategory": "tomato-paste",
+          "sizes": [
+            "650 g jar"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "sweet-red-pepper-paste",
+          "placeholder": true,
+          "name": "Sweet Red Pepper Paste",
+          "nameAr": "دبس فليفلة حلوة",
+          "subcategory": "red-pepper-paste",
+          "sizes": [
+            "650 g jar"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "hot-red-pepper-paste",
+          "placeholder": true,
+          "name": "Hot Red Pepper Paste",
+          "nameAr": "دبس فليفلة حرة",
+          "subcategory": "hot-pepper-paste",
+          "sizes": [
+            "650 g jar"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        },
+        {
+          "slug": "pomegranate-molasses",
+          "placeholder": true,
+          "name": "Pomegranate Molasses",
+          "nameAr": "دبس رمان",
+          "subcategory": "pomegranate-molasses",
+          "sizes": [
+            "500 ml bottle"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": []
+        }
+      ]
+    }
+  ]
+}

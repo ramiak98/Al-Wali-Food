@@ -1,0 +1,136 @@
+@import 'tailwindcss';
+
+/* Palette and type from docs/02-visual-direction.md */
+@theme {
+  --color-cream: #faf6ee;
+  --color-sand: #e9dcc4;
+  --color-ink: #2b2420;
+  --color-stone: #5c534c;
+  --color-cedar: #1f4d3a;
+  --color-cedar-dark: #163a2b;
+  --color-sumac: #a63a2b;
+  --color-sumac-dark: #8a2f22;
+  --color-gold: #b08d3c;
+  --color-gold-text: #8a6a22;
+
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-arabic: 'Noto Naskh Arabic', 'Geeza Pro', 'Arial', serif;
+
+  --radius-brand: 6px;
+}
+
+@layer base {
+  html {
+    background: var(--color-cream);
+    color: var(--color-ink);
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.65;
+    background: var(--color-cream);
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (min-width: 768px) {
+    body { font-size: 18px; }
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+}
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+  }
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-gold-text);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0.7rem 1.4rem;
+    border-radius: var(--radius-brand);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .btn-sumac { background: var(--color-sumac); color: #fff; }
+  .btn-sumac:hover { background: var(--color-sumac-dark); }
+  .btn-cedar { background: var(--color-cedar); color: #fff; }
+  .btn-cedar:hover { background: var(--color-cedar-dark); }
+  .btn-ghost-light { border: 1.5px solid rgb(255 255 255 / 0.85); color: #fff; }
+  .btn-ghost-light:hover { background: rgb(255 255 255 / 0.12); }
+  .btn-ghost { border: 1.5px solid var(--color-cedar); color: var(--color-cedar); }
+  .btn-ghost:hover { background: var(--color-cedar); color: #fff; }
+  .link { color: var(--color-cedar); text-decoration: underline; text-underline-offset: 3px; }
+  .link:hover { color: var(--color-sumac); }
+
+  /* Thin frieze divider inspired by Baalbek's carved borders */
+  .frieze {
+    height: 14px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14'%3E%3Cpath d='M0 7h4V2h10v10H8V5h3v4' fill='none' stroke='%23B08D3C' stroke-width='1.4'/%3E%3Cpath d='M14 7h4V2h10' fill='none' stroke='%23B08D3C' stroke-width='1.4'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: center;
+    opacity: 0.9;
+  }
+  .shade-bottom { background: linear-gradient(to top, rgb(0 0 0 / 0.62), rgb(0 0 0 / 0.15) 55%, rgb(0 0 0 / 0)); }
+  .shade-left { background: linear-gradient(to right, rgb(0 0 0 / 0.6), rgb(0 0 0 / 0.25) 60%, rgb(0 0 0 / 0.05)); }
+
+  .field label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.35rem; }
+  .field input, .field select, .field textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.65rem 0.85rem;
+    border: 1.5px solid #cbbfa8;
+    border-radius: var(--radius-brand);
+    background: #fff;
+    font-size: 1rem;
+    color: var(--color-ink);
+  }
+  .field textarea { min-height: 120px; }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--color-cedar); outline: 2px solid var(--color-cedar); outline-offset: 0; }
+  .req { color: var(--color-sumac); }
+
+  .prose-legal h1 { font-size: 2.6rem; margin-bottom: 1rem; }
+  .prose-legal h2 { font-size: 1.8rem; margin: 2.2rem 0 0.6rem; color: var(--color-cedar); }
+  .prose-legal h3 { font-size: 1.35rem; margin: 1.6rem 0 0.4rem; }
+  .prose-legal p, .prose-legal ul, .prose-legal ol, .prose-legal table { margin-bottom: 1rem; }
+  .prose-legal ul { list-style: disc; padding-left: 1.4rem; }
+  .prose-legal ol { list-style: decimal; padding-left: 1.4rem; }
+  .prose-legal a { color: var(--color-cedar); text-decoration: underline; }
+  .prose-legal blockquote { border-left: 3px solid var(--color-gold); padding: 0.6rem 1rem; background: var(--color-sand); border-radius: 0 var(--radius-brand) var(--radius-brand) 0; margin-bottom: 1.2rem; }
+  .prose-legal table { display: block; overflow-x: auto; border-collapse: collapse; font-size: 0.92rem; }
+  .prose-legal th, .prose-legal td { border: 1px solid #d8ccb4; padding: 0.45rem 0.7rem; text-align: left; vertical-align: top; }
+  .prose-legal th { background: var(--color-sand); }
+
+  .fade-up { animation: fadeUp 0.9s ease both; }
+  @keyframes fadeUp { from { opacity: 0.001; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+}

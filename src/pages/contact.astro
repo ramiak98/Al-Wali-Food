@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+const paths = [
+  { title: 'Looking for our products?', text: 'Find a store near you or ask us where to buy.', href: '/where-to-buy/', button: 'Find a store', cls: 'btn-sumac' },
+  { title: 'Distributor or retailer?', text: 'Request our catalog, pricing and availability.', href: '/distributors/', button: 'Partner with us', cls: 'btn-cedar' },
+  { title: 'Anything else?', text: 'Questions, feedback or press. Use the form below.', href: '#general', button: 'Write to us', cls: 'btn-ghost' },
+];
+---
+<Base title="Contact Al Wali Food" fullTitle description="Get in touch with Al Wali Food: find our products, become a distributor, or send us a message.">
+  <PageHero photo="cedars" eyebrow="Contact us" title="We'd love to hear from you" subtitle="Ahlan wa sahlan. Choose how we can help." />
+  <section class="wrap py-14 md:py-20 grid gap-5 md:grid-cols-3">
+    {paths.map((p) => (
+      <div class="rounded-[6px] bg-white/70 border border-[#e6dccb] p-7 flex flex-col">
+        <h2 class="text-[1.8rem] text-cedar">{p.title}</h2>
+        <p class="text-stone mt-2 flex-1">{p.text}</p>
+        <a href={p.href} class={`btn ${p.cls} mt-6 self-start`}>{p.button}</a>
+      </div>
+    ))}
+  </section>
+  <section id="general" class="bg-sand scroll-mt-24">
+    <div class="wrap py-14 md:py-20 grid gap-10 lg:grid-cols-[1fr_1.4fr]">
+      <div class="min-w-0">
+        <h2 class="text-[2.2rem] md:text-[2.8rem]">Send us a message</h2>
+        <dl class="mt-8 space-y-5">
+          <div><dt class="eyebrow">Email</dt><dd class="mt-1 select-all">[hello@alwalifood.com]</dd></div>
+          <div><dt class="eyebrow">Phone</dt><dd class="mt-1">[+1 (XXX) XXX-XXXX]<br /><span class="text-stone text-sm">Monday to Friday, 9am to 5pm [time zone]</span></dd></div>
+          <div><dt class="eyebrow">Address</dt><dd class="mt-1">[Business mailing address]</dd></div>
+        </dl>
+      </div>
+      <form class="grid gap-4 sm:grid-cols-2 bg-cream rounded-[6px] p-6 md:p-8" data-demo-form data-success="We received your message and will reply by email soon.">
+        <div class="field"><label for="c-name">Name <span class="req">*</span></label><input id="c-name" required autocomplete="name" /></div>
+        <div class="field"><label for="c-email">Email <span class="req">*</span></label><input id="c-email" type="email" required autocomplete="email" /></div>
+        <div class="field sm:col-span-2"><label for="c-subject">Subject <span class="req">*</span></label>
+          <select id="c-subject" required><option value="">Choose one</option><option>Product question</option><option>Feedback</option><option>Press / media</option><option>Other</option></select></div>
+        <div class="field sm:col-span-2"><label for="c-msg">Message <span class="req">*</span></label><textarea id="c-msg" required></textarea></div>
+        <div class="sm:col-span-2 flex flex-col sm:flex-row sm:items-center gap-3">
+          <button class="btn btn-sumac">Send message</button>
+          <p class="text-xs text-stone">See our <a class="link" href="/legal/privacy/">Privacy Policy</a>.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</Base>

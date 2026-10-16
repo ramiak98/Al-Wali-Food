@@ -1,0 +1,28 @@
+---
+import Base from '../../layouts/Base.astro';
+// The legal pages render the drafts in docs/legal directly, so there is one source of truth.
+const docs = import.meta.glob('../../../docs/legal/*.md', { eager: true }) as Record<string, any>;
+const names: Record<string, [string, string]> = {
+  terms: ['terms-of-service', 'Terms of Service'],
+  privacy: ['privacy-policy', 'Privacy Policy'],
+  cookies: ['cookie-policy', 'Cookie Policy'],
+  accessibility: ['accessibility', 'Accessibility Statement'],
+};
+export function getStaticPaths() {
+  return ['terms', 'privacy', 'cookies', 'accessibility'].map((slug) => ({ params: { slug } }));
+}
+const { slug } = Astro.params as { slug: string };
+const [file, title] = names[slug];
+const entry = Object.entries(docs).find(([k]) => k.endsWith(`/${file}.md`))![1];
+const Content = entry.Content;
+---
+<Base title={title}>
+  <section class="wrap py-14 md:py-20">
+    <nav class="flex flex-wrap gap-2 mb-10" aria-label="Legal pages">
+      {Object.entries(names).map(([s, [, t]]) => (
+        <a href={`/legal/${s}/`} class={`px-4 py-2 rounded-full text-sm border-[1.5px] ${s === slug ? 'bg-cedar border-cedar text-white' : 'border-[#cbbfa8] hover:border-cedar'}`}>{t}</a>
+      ))}
+    </nav>
+    <article class="prose-legal max-w-[72ch]"><Content /></article>
+  </section>
+</Base>

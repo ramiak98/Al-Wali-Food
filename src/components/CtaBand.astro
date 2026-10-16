@@ -1,0 +1,14 @@
+---
+interface Props { title: string; text: string; href: string; button: string; tone?: 'cedar' | 'sand' }
+const { title, text, href, button, tone = 'cedar' } = Astro.props;
+const dark = tone === 'cedar';
+---
+<section class={dark ? 'bg-cedar text-white' : 'bg-sand text-ink'}>
+  <div class="wrap py-14 md:py-16 flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
+    <div class="flex-1 min-w-0">
+      <h2 class="text-[2rem] md:text-[2.6rem]">{title}</h2>
+      <p class={`mt-2 max-w-2xl ${dark ? 'text-white/85' : 'text-stone'}`}>{text}</p>
+    </div>
+    <a href={href} class={`btn ${dark ? 'btn-sumac' : 'btn-cedar'} shrink-0`}>{button}</a>
+  </div>
+</section>

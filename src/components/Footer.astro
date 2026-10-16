@@ -1,0 +1,67 @@
+---
+import CedarMark from './CedarMark.astro';
+import { categories } from '../data/catalog';
+const year = new Date().getFullYear();
+const social = [
+  { label: 'Instagram', path: 'M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4Zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0ZM21.9 8c0-1.6-.4-3-1.6-4.2C19.1 2.6 17.6 2.2 16 2.1c-1.6-.1-6.4-.1-8 0-1.6.1-3 .5-4.2 1.7C2.6 4.9 2.2 6.4 2.1 8c-.1 1.6-.1 6.4 0 8 .1 1.6.5 3 1.7 4.2 1.2 1.2 2.6 1.6 4.2 1.7 1.6.1 6.4.1 8 0 1.6-.1 3-.5 4.2-1.7 1.2-1.2 1.6-2.6 1.7-4.2.1-1.6.1-6.4 0-8Zm-2.1 9.7a3.3 3.3 0 0 1-1.8 1.8c-1.3.5-4.3.4-5.7.4s-4.4.1-5.7-.4a3.3 3.3 0 0 1-1.8-1.8c-.5-1.3-.4-4.3-.4-5.7s-.1-4.4.4-5.7A3.3 3.3 0 0 1 6.6 4.5C7.9 4 10.9 4.1 12.3 4.1s4.4-.1 5.7.4a3.3 3.3 0 0 1 1.8 1.8c.5 1.3.4 4.3.4 5.7s.1 4.4-.4 5.7Z' },
+  { label: 'TikTok', path: 'M16.6 2h-3.3v13.4a2.9 2.9 0 1 1-2-2.8V9.2a6.2 6.2 0 1 0 5.3 6.2V8.6a7.9 7.9 0 0 0 4.6 1.5V6.8a4.6 4.6 0 0 1-4.6-4.8Z' },
+  { label: 'LinkedIn', path: 'M20.4 2H3.6A1.6 1.6 0 0 0 2 3.6v16.8A1.6 1.6 0 0 0 3.6 22h16.8a1.6 1.6 0 0 0 1.6-1.6V3.6A1.6 1.6 0 0 0 20.4 2ZM8 19H5V9.5h3V19ZM6.5 8.2a1.7 1.7 0 1 1 0-3.5 1.7 1.7 0 0 1 0 3.5ZM19 19h-3v-4.6c0-1.1 0-2.5-1.5-2.5s-1.8 1.2-1.8 2.4V19h-3V9.5h2.8v1.3a3.1 3.1 0 0 1 2.8-1.5c3 0 3.6 2 3.6 4.6V19Z' },
+];
+---
+<footer class="bg-sand text-ink">
+  <div class="frieze"></div>
+  <div class="wrap pt-14 pb-8 grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+    <div class="flex flex-col gap-4 min-w-0">
+      <a href="/" class="flex items-center gap-2.5 text-cedar">
+        <CedarMark class="w-10 h-10" />
+        <span class="font-display font-semibold text-[1.8rem]">Al Wali Food</span>
+      </a>
+      <p class="text-stone max-w-xs">Authentic Lebanese foods, proudly shared with America.</p>
+      <ul class="flex gap-3" aria-label="Social media">
+        {social.map((s) => (
+          <li><a href="#" class="w-10 h-10 grid place-items-center rounded-full bg-cedar text-white hover:bg-sumac transition-colors" aria-label={`Al Wali Food on ${s.label} (link to come)`}><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d={s.path} /></svg></a></li>
+        ))}
+      </ul>
+      <form class="mt-2 flex flex-col gap-2 max-w-sm" data-demo-form data-success="Thanks! You're on the list for recipes and news from Lebanon.">
+        <label for="newsletter-email" class="text-sm font-semibold">Recipes and news from Lebanon, once a month</label>
+        <div class="flex gap-2">
+          <input id="newsletter-email" type="email" required placeholder="you@example.com" class="flex-1 min-w-0 min-h-[46px] px-3 rounded-[6px] border-[1.5px] border-[#cbbfa8] bg-white" />
+          <button class="btn btn-cedar !min-h-[46px]">Subscribe</button>
+        </div>
+        <p class="text-xs text-stone">By subscribing you agree to our <a class="link" href="/legal/privacy/">Privacy Policy</a>. Unsubscribe anytime.</p>
+      </form>
+    </div>
+    <div>
+      <h2 class="font-sans text-xs font-semibold uppercase tracking-[0.16em] text-gold-text mb-4">Products</h2>
+      <ul class="space-y-2">{categories.map((c) => <li><a class="hover:text-cedar" href={`/products/${c.slug}/`}>{c.name}</a></li>)}</ul>
+    </div>
+    <div>
+      <h2 class="font-sans text-xs font-semibold uppercase tracking-[0.16em] text-gold-text mb-4">Company</h2>
+      <ul class="space-y-2">
+        <li><a class="hover:text-cedar" href="/about/">About Us</a></li>
+        <li><a class="hover:text-cedar" href="/events/">Events</a></li>
+        <li><a class="hover:text-cedar" href="/contact/">Contact Us</a></li>
+        <li><a class="hover:text-cedar" href="/distributors/">For Distributors</a></li>
+        <li><a class="hover:text-cedar" href="/where-to-buy/">Where to Buy</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="font-sans text-xs font-semibold uppercase tracking-[0.16em] text-gold-text mb-4">Legal</h2>
+      <ul class="space-y-2">
+        <li><a class="hover:text-cedar" href="/legal/terms/">Terms of Service</a></li>
+        <li><a class="hover:text-cedar" href="/legal/privacy/">Privacy Policy</a></li>
+        <li><a class="hover:text-cedar" href="/legal/cookies/">Cookie Policy</a></li>
+        <li><a class="hover:text-cedar" href="/legal/accessibility/">Accessibility</a></li>
+        <li><a class="hover:text-cedar" href="/legal/privacy/#your-choices">Your Privacy Choices</a></li>
+        <li><button type="button" class="hover:text-cedar text-left" data-cookie-settings>Cookie Settings</button></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-[#d8ccb4]">
+    <div class="wrap py-5 flex flex-col md:flex-row gap-2 md:gap-6 text-sm text-stone">
+      <p>© {year} [Legal entity name]. All rights reserved.</p>
+      <p>[Business address]</p>
+      <p class="md:ml-auto font-medium text-cedar">Product of Lebanon</p>
+    </div>
+  </div>
+</footer>

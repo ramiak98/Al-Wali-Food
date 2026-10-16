@@ -1,0 +1,15 @@
+---
+import { productImage, productUrl, type Product } from '../data/catalog';
+interface Props { product: Product }
+const { product: p } = Astro.props;
+---
+<a href={productUrl(p)} class="group flex flex-col bg-white/70 border border-[#e6dccb] rounded-[6px] overflow-hidden hover:border-gold transition-colors" data-sub={p.subcategory}>
+  <div class="aspect-square bg-[#f3ece0] overflow-hidden">
+    <img src={productImage(p)} alt={`${p.name} placeholder packaging`} class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" loading="lazy" />
+  </div>
+  <div class="p-4 flex flex-col gap-1 flex-1">
+    <h3 class="text-[1.35rem] text-ink group-hover:text-cedar">{p.name}</h3>
+    <p class="font-arabic text-gold-text text-[1.05rem]" lang="ar" dir="rtl">{p.nameAr}</p>
+    <p class="text-sm text-stone mt-auto pt-1">{p.sizes.join(' · ')}</p>
+  </div>
+</a>

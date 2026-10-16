@@ -1,0 +1,16 @@
+---
+// Renders a site photo (free Unsplash photo, or the drawn stand-in when photos are off).
+// If the photo cannot load, it swaps to the stand-in so the layout never shows a broken image.
+import { photos, photoSrc, fallbackSrc, type PhotoKey } from '../data/photos';
+interface Props { name: PhotoKey; class?: string; width?: number; eager?: boolean; alt?: string }
+const { name, class: cls = '', width = 1600, eager = false, alt } = Astro.props;
+---
+<img
+  src={photoSrc(name, width)}
+  data-fallback={fallbackSrc(name)}
+  alt={alt ?? photos[name].alt}
+  class={`object-cover ${cls}`}
+  loading={eager ? 'eager' : 'lazy'}
+  decoding="async"
+  onerror="if(this.dataset.fallback&&this.src.indexOf(this.dataset.fallback)<0){this.src=this.dataset.fallback}"
+/>

@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+// Hidden from the main menu until the first event is published (docs/content/events.md).
+const events = [
+  { day: '14', month: 'Mar', year: '2027', type: 'Trade show', title: '[Sample] Summer Fancy Food Show', place: 'New York, NY', text: 'Visit our booth to taste the full range and meet the sales team.' },
+  { day: '02', month: 'May', year: '2027', type: 'In-store tasting', title: '[Sample] Labneh & olive oil tasting', place: 'Dearborn, MI', text: 'A Lebanese breakfast tasting with our labneh, olives and za’atar.' },
+  { day: '21', month: 'Aug', year: '2027', type: 'Festival', title: '[Sample] Lebanese food festival', place: 'Houston, TX', text: 'Pickles, sweets and music at the community festival.' },
+];
+---
+<Base title="Events & Tastings | Al Wali Food" fullTitle description="Meet Al Wali Food at trade shows, in-store tastings and Lebanese food festivals across the US.">
+  <PageHero photo="mezze" eyebrow="Coming later" title="Events & tastings" subtitle="Meet us at trade shows, in-store tastings and Lebanese festivals." />
+  <section class="wrap py-14 md:py-20">
+    <p class="rounded-[6px] bg-sand p-4 text-sm text-stone mb-8">This page stays hidden from the menu until the first real event is published. The events below are samples.</p>
+    <div class="grid gap-5">
+      {events.map((e) => (
+        <article class="grid grid-cols-[84px_1fr] md:grid-cols-[110px_1fr_auto] gap-5 md:items-center rounded-[6px] bg-white/70 border border-[#e6dccb] p-5">
+          <div class="text-center rounded-[6px] bg-cedar text-white py-3">
+            <p class="font-display text-[2.4rem] leading-none font-semibold tabular-nums">{e.day}</p>
+            <p class="text-xs uppercase tracking-[0.16em] mt-1">{e.month} {e.year}</p>
+          </div>
+          <div class="min-w-0">
+            <p class="eyebrow">{e.type} · {e.place}</p>
+            <h2 class="text-[1.7rem] mt-1">{e.title}</h2>
+            <p class="text-stone text-[0.95rem] mt-1">{e.text}</p>
+          </div>
+          <a href="/distributors/#inquiry" class="btn btn-ghost col-span-2 md:col-span-1 justify-self-start">Book a meeting</a>
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>

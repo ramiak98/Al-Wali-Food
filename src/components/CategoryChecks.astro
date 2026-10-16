@@ -1,0 +1,20 @@
+---
+import { categories } from '../data/catalog';
+interface Props { name: string; legend: string; notSure?: boolean }
+const { name, legend, notSure = false } = Astro.props;
+---
+<fieldset class="field">
+  <legend class="text-[0.9rem] font-semibold mb-2">{legend}</legend>
+  <div class="flex flex-wrap gap-2">
+    {categories.map((c) => (
+      <label class="inline-flex items-center gap-2 px-3 min-h-[40px] rounded-full border-[1.5px] border-[#cbbfa8] bg-white text-[0.9rem] font-normal cursor-pointer has-[:checked]:border-cedar has-[:checked]:bg-cedar has-[:checked]:text-white !mb-0">
+        <input type="checkbox" name={name} value={c.slug} id={`${name}-${c.slug}`} class="sr-only" data-cat={c.slug} />{c.name}
+      </label>
+    ))}
+    {notSure && (
+      <label class="inline-flex items-center gap-2 px-3 min-h-[40px] rounded-full border-[1.5px] border-[#cbbfa8] bg-white text-[0.9rem] font-normal cursor-pointer has-[:checked]:border-cedar has-[:checked]:bg-cedar has-[:checked]:text-white !mb-0">
+        <input type="checkbox" name={name} value="not-sure" id={`${name}-not-sure`} class="sr-only" />Not sure
+      </label>
+    )}
+  </div>
+</fieldset>
