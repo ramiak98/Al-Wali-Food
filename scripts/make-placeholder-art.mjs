@@ -67,96 +67,9 @@ function sky(id, stops) {
 
 const scenes = {};
 
-// IMG-01 Baalbek, Temple of Jupiter columns at golden hour
-scenes['baalbek-jupiter'] = (() => {
-  const r = rng(1);
-  const defs = sky('s', [[0, '#3b2a4a'], [0.45, '#c8673a'], [0.75, '#efb15e'], [1, '#f6d79a']]) + grain +
-    `<radialGradient id="sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff3cf"/><stop offset=".4" stop-color="#ffd98a" stop-opacity=".9"/><stop offset="1" stop-color="#ffd98a" stop-opacity="0"/></radialGradient>`;
-  let b = `<rect width="${W}" height="${H}" fill="url(#s)"/>`;
-  b += `<circle cx="1180" cy="640" r="260" fill="url(#sun)"/>`;
-  b += ridge(r, 690, 90, 14, '#9a5a4a');
-  b += ridge(r, 760, 60, 18, '#6e3f38');
-  // six standing columns on a podium
-  const podiumY = 760;
-  const colTop = 260;
-  b += `<rect x="360" y="${podiumY}" width="900" height="60" fill="#3a2320"/>`;
-  b += `<rect x="330" y="${podiumY + 60}" width="960" height="40" fill="#2f1c1a"/>`;
-  b += `<path d="M380 ${colTop - 70} h860 v46 h-860z" fill="#3a2320"/>`;
-  b += `<path d="M370 ${colTop - 90} h880 v26 h-880z" fill="#3a2320"/>`;
-  for (let i = 0; i < 6; i++) b += column(410 + i * 150, colTop - 24, podiumY - 16, 64, '#3a2320', '#5a3a30');
-  b += smoothRidge(r, 900, 40, 6, '#24160f');
-  b += grainRect;
-  return svg(b, defs);
-})();
 
-// IMG-10 Temple of Bacchus, wide
-scenes['baalbek-bacchus'] = (() => {
-  const r = rng(10);
-  const defs = sky('s', [[0, '#8fb3c9'], [0.6, '#e9d3b0'], [1, '#f3e4c7']]) + grain;
-  let b = `<rect width="${W}" height="${H}" fill="url(#s)"/>`;
-  b += smoothRidge(r, 620, 80, 6, '#a9b7b0');
-  b += smoothRidge(r, 700, 60, 7, '#8a9a7d');
-  const stone = '#d8b98a';
-  const shade = '#b89464';
-  b += `<path d="M300 330 L800 190 L1300 330 Z" fill="${stone}"/>`;
-  b += `<path d="M340 320 L800 205 L1260 320 Z" fill="${shade}" opacity=".5"/>`;
-  b += `<rect x="290" y="330" width="1020" height="56" fill="${stone}"/>`;
-  b += `<rect x="290" y="372" width="1020" height="10" fill="${shade}"/>`;
-  for (let i = 0; i < 8; i++) b += column(318 + i * 128, 386, 780, 54, stone, shade);
-  b += `<rect x="250" y="796" width="1100" height="50" fill="${shade}"/>`;
-  b += `<rect x="220" y="846" width="1160" height="40" fill="#a37f52"/>`;
-  b += smoothRidge(r, 940, 30, 5, '#6f7d55');
-  b += grainRect;
-  return svg(b, defs);
-})();
 
-// IMG-05 Carved stone detail
-scenes['baalbek-detail'] = (() => {
-  const defs = lin('s', [[0, '#e3c99d'], [1, '#b38c5c']]) + grain;
-  let b = `<rect width="${W}" height="${H}" fill="url(#s)"/>`;
-  for (let row = 0; row < 3; row++) {
-    const y = 140 + row * 270;
-    b += `<rect x="0" y="${y}" width="${W}" height="10" fill="#8f6b40" opacity=".5"/>`;
-    for (let i = 0; i < 12; i++) {
-      const x = 70 + i * 135;
-      if (row === 1) {
-        b += `<g transform="translate(${x} ${y + 130})" fill="none" stroke="#7d5a32" stroke-width="7" opacity=".7"><circle r="52"/><path d="M0-52 Q26 0 0 52 Q-26 0 0-52M-52 0 Q0 26 52 0 Q0-26 -52 0"/></g>`;
-      } else {
-        b += `<path d="M${x - 50} ${y + 220} q50 -170 100 0" fill="none" stroke="#7d5a32" stroke-width="8" opacity=".6"/>`;
-        b += `<circle cx="${x}" cy="${y + 90}" r="12" fill="#7d5a32" opacity=".5"/>`;
-      }
-    }
-  }
-  b += grainRect;
-  return svg(b, defs);
-})();
 
-// IMG-02 Bekaa Valley fields with mountains
-scenes['bekaa-valley'] = (() => {
-  const r = rng(2);
-  const defs = sky('s', [[0, '#9cc3d8'], [0.7, '#e7e2c9'], [1, '#f2e8cc']]) + grain;
-  let b = `<rect width="${W}" height="${H}" fill="url(#s)"/>`;
-  b += smoothRidge(r, 420, 140, 5, '#9aaab4');
-  b += `<path d="M560 300 l70 -40 l60 30 l-40 20z" fill="#f4f1ea" opacity=".9"/>`;
-  b += smoothRidge(r, 520, 90, 7, '#7f9078');
-  const fields = ['#c9b25a', '#7c9a4e', '#d9c27a', '#5f8a45', '#b8a24a', '#8daa58', '#cfb565'];
-  for (let i = 0; i < 7; i++) {
-    const y = 560 + i * 62;
-    b += smoothRidge(r, y, 30, 4, fields[i]);
-    // crop rows
-    for (let k = 0; k < 18; k++) {
-      const x = r() * W;
-      b += `<path d="M${x.toFixed(0)} ${y + 50} l${(r() * 80 - 40).toFixed(0)} 30" stroke="#00000018" stroke-width="3"/>`;
-    }
-  }
-  // poplar line
-  for (let i = 0; i < 9; i++) {
-    const x = 980 + i * 34;
-    b += `<ellipse cx="${x}" cy="575" rx="11" ry="46" fill="#3e5a34"/>`;
-  }
-  b += grainRect;
-  return svg(b, defs);
-})();
 
 function oliveTree(x, y, s, r, leaf = '#7d8c4f', dark = '#5d6b3a', trunk = '#5a4632') {
   let g = `<path d="M${x - 10 * s} ${y} C${x - 18 * s} ${y - 60 * s} ${x + 22 * s} ${y - 70 * s} ${x - 4 * s} ${y - 120 * s} L${x + 10 * s} ${y - 120 * s} C${x + 34 * s} ${y - 70 * s} ${x + 8 * s} ${y - 40 * s} ${x + 16 * s} ${y} Z" fill="${trunk}"/>`;
@@ -214,21 +127,6 @@ function cedar(x, y, s, c1, c2, snow) {
   return g;
 }
 
-// IMG-07 Cedars of Lebanon
-scenes['cedars'] = (() => {
-  const r = rng(7);
-  const defs = sky('s', [[0, '#a9c4d6'], [1, '#e9eef0']]) + grain;
-  let b = `<rect width="${W}" height="${H}" fill="url(#s)"/>`;
-  b += ridge(r, 380, 160, 9, '#c9d4dc');
-  b += ridge(r, 470, 80, 12, '#f2f4f5');
-  b += smoothRidge(r, 700, 60, 5, '#e8ecee');
-  b += cedar(380, 820, 1.4, '#1f4d3a', '#2c6049', true);
-  b += cedar(900, 760, 1.0, '#244f3c', '#336650', true);
-  b += cedar(1300, 860, 1.7, '#1a4433', '#28583f', true);
-  b += smoothRidge(r, 900, 30, 5, '#f7f8f8');
-  b += grainRect;
-  return svg(b, defs);
-})();
 
 function jar(x, y, w, h, fill, lid = '#2b2420', label = '#faf6ee', band = '#a63a2b') {
   return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${w * 0.14}" fill="${fill}"/>` +
@@ -375,7 +273,7 @@ scenes['mezze'] = (() => {
 })();
 
 // IMG-04 Fresh vegetables from the Bekaa (basket overhead)
-scenes['bekaa-produce'] = (() => {
+scenes['fresh-produce'] = (() => {
   const r = rng(4);
   const defs = lin('s', [[0, '#d7c39b'], [1, '#b9a074']], 1, 1) + grain;
   let b = `<rect width="${W}" height="${H}" fill="url(#s)"/>`;

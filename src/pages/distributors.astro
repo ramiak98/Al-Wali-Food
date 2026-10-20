@@ -4,21 +4,21 @@ import PageHero from '../components/PageHero.astro';
 import CategoryChecks from '../components/CategoryChecks.astro';
 import { allProducts } from '../data/catalog';
 const reasons = [
-  { title: 'A complete Lebanese range', text: 'Pickles, dairy, sweets, olive oil and pastes. Five categories, one supplier.' },
+  { title: 'A complete pantry range', text: 'Pickles, dairy, sweets, olive oil and pastes. Five categories, one supplier.' },
   { title: 'Consistent supply', text: '[Reliable import schedule / US warehouse in STATE] so your shelves stay full.' },
   { title: 'Shelf-ready packaging', text: 'US-compliant labels with English nutrition facts and allergen statements.' },
   { title: 'Marketing support', text: 'Product photos, shelf talkers and social content for your stores.' },
 ];
 const productCats = Object.fromEntries(allProducts.map((p) => [p.slug, [p.category, p.name]]));
 ---
-<Base title="Wholesale Lebanese Food Supplier | Distributors & Retailers | Al Wali Food" fullTitle description="Carry Al Wali Food's authentic Lebanese pickles, dairy, olive oil, pastes and sweets. Contact us for our catalog, case packs and availability.">
-  <PageHero photo="warehouse" eyebrow="For distributors & retailers" title="Partner with Al Wali Food" subtitle="Bring authentic Lebanese products to your customers. We work directly with distributors and retailers across the United States.">
+<Base title="Wholesale Mediterranean Food Supplier | Distributors & Retailers | Al Wali Food" fullTitle description="Carry Al Wali Food's authentic Mediterranean pickles, dairy, olive oil, pastes and sweets. Contact us for our catalog, case packs and availability.">
+  <PageHero photo="warehouse" eyebrow="For distributors & retailers" title="Partner with Al Wali Food" subtitle="Bring authentic Mediterranean and Middle Eastern products to your customers. We work directly with distributors and retailers across the United States.">
     <a href="#inquiry" class="btn btn-sumac mt-6">Send an inquiry</a>
   </PageHero>
 
   <section class="wrap py-16 md:py-20">
     <p class="eyebrow">Why partner with us</p>
-    <h2 class="text-[2.3rem] md:text-[3rem] mt-2 mb-10">Lebanese flavor your customers ask for</h2>
+    <h2 class="text-[2.3rem] md:text-[3rem] mt-2 mb-10">Flavors your customers ask for</h2>
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {reasons.map((r, i) => (
         <div class="rounded-[6px] bg-white/70 border border-[#e6dccb] p-6">

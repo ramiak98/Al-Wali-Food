@@ -1,0 +1,14 @@
+---
+// Olive branch mark used as a recurring ornament.
+interface Props { class?: string; title?: string }
+const { class: cls = 'w-8 h-8', title } = Astro.props;
+---
+<svg class={cls} viewBox="0 0 32 32" fill="none" aria-hidden={title ? undefined : 'true'} role={title ? 'img' : undefined}>
+  {title && <title>{title}</title>}
+  <path d="M5 27C12 20 18 13 27 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  <ellipse cx="12" cy="15" rx="5" ry="2.4" transform="rotate(-50 12 15)" fill="currentColor"/>
+  <ellipse cx="20" cy="15" rx="5" ry="2.4" transform="rotate(40 20 15)" fill="currentColor"/>
+  <ellipse cx="17" cy="9" rx="4.5" ry="2.2" transform="rotate(-50 17 9)" fill="currentColor"/>
+  <ellipse cx="24" cy="10" rx="4" ry="2" transform="rotate(40 24 10)" fill="currentColor"/>
+  <circle cx="9" cy="22" r="2.6" fill="currentColor" opacity=".55"/>
+</svg>

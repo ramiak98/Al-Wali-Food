@@ -9,40 +9,20 @@
 export type PhotoKey = keyof typeof photos;
 
 export const photos = {
-  'baalbek-jupiter': {
-    id: 'IMG-01',
-    unsplash: 'photo-1786954320111-5799403e8600',
-    alt: 'Ancient stone columns of Baalbek standing before the hills of the Bekaa Valley',
-  },
-  'bekaa-valley': {
-    id: 'IMG-02',
-    unsplash: 'photo-1722405259335-6fe89601a724',
-    alt: 'Green fields of the valley with mountains rising behind',
-  },
   'olive-harvest': {
     id: 'IMG-03',
     unsplash: 'photo-1753703986174-95e74e094b0e',
     alt: 'Freshly picked olives and leaves gathered on a harvest net',
   },
-  'bekaa-produce': {
+  'fresh-produce': {
     id: 'IMG-04',
     unsplash: 'photo-1664791461482-79f5deee490f',
     alt: 'Fresh vegetables and fruit from the harvest',
   },
-  'baalbek-detail': {
-    id: 'IMG-05',
-    unsplash: 'photo-1786954320070-ab12eb84610c',
-    alt: 'Carved stone lion head and meander pattern on an ancient wall in Baalbek',
-  },
   mezze: {
     id: 'IMG-06',
     unsplash: 'photo-1743674453093-592bed88018e',
-    alt: 'A platter of Lebanese mezze dishes',
-  },
-  cedars: {
-    id: 'IMG-07',
-    unsplash: 'photo-1641578043126-9a5dc9c54049',
-    alt: 'Cedar trees of Lebanon standing in the snow',
+    alt: 'A platter of mezze dishes',
   },
   souk: {
     id: 'IMG-08',
@@ -53,11 +33,6 @@ export const photos = {
     id: 'IMG-09',
     unsplash: 'photo-1774456567094-726973275d34',
     alt: 'Pickles with dill and spices in a glass jar',
-  },
-  'baalbek-bacchus': {
-    id: 'IMG-10',
-    unsplash: 'photo-1786954320064-9b8d43bf0638',
-    alt: 'Stone columns and ruins of the Temple of Bacchus in Baalbek, Lebanon',
   },
   'olive-grove': {
     id: 'IMG-11',

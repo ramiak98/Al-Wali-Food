@@ -93,7 +93,7 @@
   .link { color: var(--color-cedar); text-decoration: underline; text-underline-offset: 3px; }
   .link:hover { color: var(--color-sumac); }
 
-  /* Thin frieze divider inspired by Baalbek's carved borders */
+  /* Thin frieze divider inspired by carved stone borders */
   .frieze {
     height: 14px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14'%3E%3Cpath d='M0 7h4V2h10v10H8V5h3v4' fill='none' stroke='%23B08D3C' stroke-width='1.4'/%3E%3Cpath d='M14 7h4V2h10' fill='none' stroke='%23B08D3C' stroke-width='1.4'/%3E%3C/svg%3E");

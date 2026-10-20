@@ -2,25 +2,25 @@
 import Base from '../layouts/Base.astro';
 import Photo from '../components/Photo.astro';
 import ProductCard from '../components/ProductCard.astro';
-import CedarMark from '../components/CedarMark.astro';
+import OliveMark from '../components/OliveMark.astro';
 import { categories, featured } from '../data/catalog';
 import type { PhotoKey } from '../data/photos';
 
-const slides: PhotoKey[] = ['baalbek-jupiter', 'bekaa-valley', 'olive-harvest'];
+const slides: PhotoKey[] = ['mezze', 'olive-harvest', 'souk'];
 const promises = [
-  { title: 'Authentically Lebanese', line: "Traditional recipes from Lebanon's kitchens.", icon: 'cedar' },
+  { title: 'Authentic recipes', line: 'Traditional flavors from the Mediterranean and beyond.', icon: 'cedar' },
   { title: 'Simple ingredients', line: 'Real ingredients you can pronounce.', icon: 'olive' },
   { title: 'Quality you can trust', line: 'Produced to strict food safety standards.', icon: 'shield' },
 ];
 const gallery: { name: PhotoKey; cls: string }[] = [
-  { name: 'baalbek-detail', cls: 'md:col-span-2 md:row-span-2' },
-  { name: 'mezze', cls: '' },
-  { name: 'cedars', cls: '' },
+  { name: 'mezze', cls: 'md:col-span-2 md:row-span-2' },
+  { name: 'olive-harvest', cls: '' },
+  { name: 'labneh-breakfast', cls: '' },
   { name: 'souk', cls: '' },
   { name: 'pickle-jars', cls: '' },
 ];
 ---
-<Base title="Al Wali Food | Authentic Lebanese Pickles, Dairy, Olive Oil & More" fullTitle description="Authentic Lebanese foods from the Bekaa Valley to your table. Discover Al Wali Food pickles, labneh, olive oil, pastes and sweets.">
+<Base title="Al Wali Food | Mediterranean Pickles, Dairy, Olive Oil & More" fullTitle description="Authentic Mediterranean and Middle Eastern foods for American tables. Discover Al Wali Food pickles, labneh, olive oil, pastes and sweets.">
   <!-- 1. Hero -->
   <section class="relative isolate overflow-hidden bg-cedar-dark min-h-[560px] md:min-h-[680px] flex items-center" aria-label="Welcome">
     {slides.map((s, i) => (
@@ -31,9 +31,9 @@ const gallery: { name: PhotoKey; cls: string }[] = [
     <div class="absolute inset-0 shade-left -z-10"></div>
     <div class="wrap py-20 text-white">
       <div class="max-w-2xl fade-up">
-        <p class="eyebrow !text-[#f0dca8] flex items-center gap-2"><CedarMark class="w-5 h-5" /> Product of Lebanon</p>
-        <h1 class="mt-4 text-[2.7rem] leading-[1.05] md:text-[4.4rem]">From the heart of Lebanon to your table</h1>
-        <p class="mt-5 text-lg md:text-xl text-white/90 max-w-xl">Pickles, labneh, olive oil, pastes and sweets made the way Lebanese families have made them for generations.</p>
+        <p class="eyebrow !text-[#f0dca8] flex items-center gap-2"><OliveMark class="w-5 h-5" /> Mediterranean pantry</p>
+        <h1 class="mt-4 text-[2.7rem] leading-[1.05] md:text-[4.4rem]">Authentic flavors for your table</h1>
+        <p class="mt-5 text-lg md:text-xl text-white/90 max-w-xl">Pickles, labneh, olive oil, pastes and sweets sourced from trusted producers across the Mediterranean and the Middle East.</p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a href="/products/" class="btn btn-sumac">Explore our products</a>
           <a href="/distributors/" class="btn btn-ghost-light">Become a partner</a>
@@ -53,7 +53,7 @@ const gallery: { name: PhotoKey; cls: string }[] = [
       {promises.map((p) => (
         <div class="flex gap-4 items-start">
           <span class="shrink-0 w-12 h-12 rounded-full bg-cream grid place-items-center text-cedar">
-            {p.icon === 'cedar' && <CedarMark class="w-7 h-7" />}
+            {p.icon === 'cedar' && <OliveMark class="w-7 h-7" />}
             {p.icon === 'olive' && <svg class="w-7 h-7" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 27C12 20 18 13 27 5" stroke-linecap="round"/><ellipse cx="12" cy="15" rx="5" ry="2.4" transform="rotate(-50 12 15)" fill="currentColor" stroke="none"/><ellipse cx="20" cy="15" rx="5" ry="2.4" transform="rotate(40 20 15)" fill="currentColor" stroke="none"/><ellipse cx="17" cy="9" rx="4.5" ry="2.2" transform="rotate(-50 17 9)" fill="currentColor" stroke="none"/><circle cx="9" cy="22" r="2.6" fill="#B08D3C" stroke="none"/></svg>}
             {p.icon === 'shield' && <svg class="w-7 h-7" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M16 4 6 8v7c0 6.5 4.3 11 10 13 5.7-2 10-6.5 10-13V8L16 4Z"/><path d="m11.5 16 3.2 3.2 6-6.4" stroke-linecap="round"/></svg>}
           </span>
@@ -95,15 +95,15 @@ const gallery: { name: PhotoKey; cls: string }[] = [
   <section class="bg-sand">
     <div class="wrap py-16 md:py-24 grid gap-10 md:grid-cols-2 md:items-center">
       <div class="relative">
-        <Photo name="bekaa-produce" width={1200} class="w-full aspect-[4/5] md:aspect-[5/6] rounded-[6px]" />
+        <Photo name="fresh-produce" width={1200} class="w-full aspect-[4/5] md:aspect-[5/6] rounded-[6px]" />
         <div class="hidden md:block absolute -bottom-6 -right-6 w-40 h-40 rounded-[6px] overflow-hidden border-4 border-sand"><Photo name="olive-grove" width={400} class="w-full h-full" /></div>
       </div>
       <div class="min-w-0">
         <p class="eyebrow">Our story</p>
-        <h2 class="text-[2.3rem] md:text-[3rem] mt-2">Rooted in the Bekaa Valley</h2>
+        <h2 class="text-[2.3rem] md:text-[3rem] mt-2">Good food, carefully sourced</h2>
         <div class="frieze my-6 max-w-[220px]"></div>
-        <p class="text-stone">Between the mountains of Lebanon lies the Bekaa Valley, home to the temples of Baalbek and some of the most fertile land in the Middle East. It is where our story begins.</p>
-        <p class="text-stone mt-4">At Al Wali Food we bring that heritage to American kitchens, with products that taste the way they do at a Lebanese family table.</p>
+        <p class="text-stone">We work with family producers across the Mediterranean and the Middle East who still make their pickles, cheeses, oils and pastes the traditional way.</p>
+        <p class="text-stone mt-4">At Al Wali Food we bring those flavors to American kitchens, with products that taste the way they do at a family table back home.</p>
         <a href="/about/" class="btn btn-cedar mt-8">Our story</a>
       </div>
     </div>
@@ -113,7 +113,7 @@ const gallery: { name: PhotoKey; cls: string }[] = [
   <section class="py-16 md:py-24">
     <div class="wrap flex items-end justify-between gap-4 mb-8">
       <div>
-        <p class="eyebrow">Sahtein</p>
+        <p class="eyebrow">Bestsellers</p>
         <h2 class="text-[2.3rem] md:text-[3rem] mt-2">Family favorites</h2>
       </div>
       <div class="hidden sm:flex gap-2">
@@ -128,13 +128,13 @@ const gallery: { name: PhotoKey; cls: string }[] = [
     </div>
   </section>
 
-  <!-- 6. Lebanon gallery -->
+  <!-- 6. Gallery -->
   <section class="bg-ink text-cream">
     <div class="wrap py-16 md:py-24">
       <div class="max-w-2xl mb-10">
-        <p class="eyebrow !text-[#d9bd73]">Lebanon</p>
-        <h2 class="text-[2.3rem] md:text-[3rem] mt-2">A taste of where we come from</h2>
-        <p class="mt-3 text-[#d8cdb9]">Every jar carries a little of Lebanon: its sun, its soil, its hospitality.</p>
+        <p class="eyebrow !text-[#d9bd73]">Around the table</p>
+        <h2 class="text-[2.3rem] md:text-[3rem] mt-2">A taste of the Mediterranean</h2>
+        <p class="mt-3 text-[#d8cdb9]">Every jar carries a little of where it was made: its sun, its soil, its hospitality.</p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 gap-3 md:h-[560px]">
         {gallery.map((g) => (
@@ -167,7 +167,7 @@ const gallery: { name: PhotoKey; cls: string }[] = [
     <div class="wrap py-12 flex flex-col md:flex-row md:items-center gap-4 md:gap-10">
       <div class="flex-1">
         <h2 class="text-[2rem]">Follow the flavor</h2>
-        <p class="text-stone">Recipes, behind the scenes and Lebanese food culture.</p>
+        <p class="text-stone">Recipes, behind the scenes and food from around the Mediterranean.</p>
       </div>
       <div class="flex flex-wrap gap-3">
         <a href="#" class="btn btn-ghost">Instagram</a>

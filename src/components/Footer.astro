@@ -15,14 +15,14 @@ const social = [
         <img src="/brand/logo-en.png" alt="Al Wali" width="480" height="236" class="h-[64px] w-auto" />
         <img src="/brand/logo-ar.png" alt="الوالي" width="320" height="132" class="h-[44px] w-auto" />
       </a>
-      <p class="text-stone max-w-xs">Authentic Lebanese foods, proudly shared with America.</p>
+      <p class="text-stone max-w-xs">Authentic Mediterranean foods, proudly shared with America.</p>
       <ul class="flex gap-3" aria-label="Social media">
         {social.map((s) => (
           <li><a href="#" class="w-10 h-10 grid place-items-center rounded-full bg-cedar text-white hover:bg-sumac transition-colors" aria-label={`Al Wali Food on ${s.label} (link to come)`}><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d={s.path} /></svg></a></li>
         ))}
       </ul>
-      <form class="mt-2 flex flex-col gap-2 max-w-sm" data-demo-form data-success="Thanks! You're on the list for recipes and news from Lebanon.">
-        <label for="newsletter-email" class="text-sm font-semibold">Recipes and news from Lebanon, once a month</label>
+      <form class="mt-2 flex flex-col gap-2 max-w-sm" data-demo-form data-success="Thanks! You're on the list for recipes and news.">
+        <label for="newsletter-email" class="text-sm font-semibold">Recipes and news, once a month</label>
         <div class="flex gap-2">
           <input id="newsletter-email" type="email" required placeholder="you@example.com" class="flex-1 min-w-0 min-h-[46px] px-3 rounded-[6px] border-[1.5px] border-[#cbbfa8] bg-white" />
           <button class="btn btn-cedar !min-h-[46px]">Subscribe</button>
@@ -60,7 +60,7 @@ const social = [
     <div class="wrap py-5 flex flex-col md:flex-row gap-2 md:gap-6 text-sm text-stone">
       <p>© {year} [Legal entity name]. All rights reserved.</p>
       <p>[Business address]</p>
-      <p class="md:ml-auto font-medium text-cedar">Product of Lebanon</p>
+      <p class="md:ml-auto font-medium text-cedar">Mediterranean &amp; Middle Eastern foods</p>
     </div>
   </div>
 </footer>

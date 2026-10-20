@@ -16,7 +16,7 @@ const trade = [
   ['UPC', p.trade.upc || '[To confirm]'],
   ['Case pack', p.trade.casePack || '[To confirm, e.g. 12 × ' + p.sizes[0] + ']'],
   ['Shelf life', p.trade.shelfLife || '[To confirm]'],
-  ['Country of origin', 'Lebanon'],
+  ['Country of origin', p.countryOfOrigin || '[To confirm]'],
 ];
 ---
 <Base title={`${p.name}`} description={`${p.name} (${p.nameAr}) by Al Wali Food. ${p.description}`}>
@@ -47,7 +47,7 @@ const trade = [
 
       <div class="mt-6 flex flex-wrap gap-2">
         {p.sizes.map((s) => <span class="px-3 py-1.5 rounded-full bg-sand text-sm font-medium">{s}</span>)}
-        <span class="px-3 py-1.5 rounded-full border border-cedar text-cedar text-sm font-medium">Product of Lebanon</span>
+        {p.countryOfOrigin && <span class="px-3 py-1.5 rounded-full border border-cedar text-cedar text-sm font-medium">Product of {p.countryOfOrigin}</span>}
       </div>
 
       <div class="mt-8 flex flex-wrap gap-3">
