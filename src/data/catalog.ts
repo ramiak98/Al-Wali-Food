@@ -63,9 +63,11 @@ const details: Record<string, [string, string[]]> = {
   'pickled-turnips': ['Bright pink turnips, colored naturally with beetroot, with a sharp and refreshing crunch.', ['The must-have side for falafel', 'Chop into fattoush', 'Snack on them straight from the jar']],
   'mixed-pickles': ['A colorful mix of cucumbers, turnips, carrots and peppers, ready for the table.', ['Serve with kebbeh', 'Pair with labneh sandwiches', 'Brighten a rice dish']],
   'pickled-hot-peppers': ['Green chili peppers pickled whole for a clean, fiery bite.', ['Serve alongside grilled meats', 'Slice over hummus', 'Add heat to sandwiches']],
-  'green-olives-in-brine': ['Firm green olives cured in a simple brine, as they are kept in Lebanese homes.', ['Breakfast with labneh and bread', 'Add to salads', 'Serve with cheese']],
+  'green-olives': ['Plump green olives, cured with no preservatives, coloring or artificial flavors.', ['Breakfast with labneh and bread', 'Add to salads', 'Serve with cheese']],
+  'makdous-eggplant': ['Baby eggplants stuffed with walnuts, red pepper and garlic, then preserved in oil. A Lebanese pantry classic.', ['Serve at breakfast with warm bread', 'Add to a mezze spread', 'Pair with labneh and olives']],
   labneh: ['Thick, strained yogurt with a gentle tang, smooth enough to spread.', ['Swirl with olive oil and za’atar', 'Spread in a warm pita with mint', 'Serve as a dip with vegetables']],
-  'labneh-balls-in-olive-oil': ['Small balls of aged labneh preserved in olive oil, rich and creamy.', ['Serve on a breakfast spread', 'Roll in za’atar or chili', 'Toss into a salad']],
+  'labne-kefir-cheese-balls': ['Homemade-style goat labneh balls, rolled by hand and preserved in oil. Creamy, tangy and rich.', ['Serve on a breakfast spread with olives', 'Spread on warm bread with mint', 'Toss into a salad']],
+  'labne-kefir-cheese-balls-chili': ['Our goat labneh balls coated in red chili and preserved in oil, for a creamy bite with gentle heat.', ['Serve with bread and fresh vegetables', 'Add to a mezze platter', 'Crumble over eggs']],
   'akkawi-cheese': ['A mild white brined cheese, soft and slightly salty, used in savory pastries and sweets.', ['Bake into man’oushe', 'Melt into knefeh', 'Slice with watermelon in summer']],
   'halloumi-cheese': ['A firm cheese that holds its shape when grilled or fried, turning golden outside.', ['Grill and serve with tomatoes', 'Fry for breakfast', 'Add to a warm salad']],
   ghee: ['Clarified butter with a nutty aroma, used for frying and in traditional sweets.', ['Cook rice and vermicelli', 'Fry eggs the village way', 'Bake maamoul']],
@@ -76,12 +78,12 @@ const details: Record<string, [string, string[]]> = {
   'pistachio-nougat': ['Chewy white nougat packed with pistachios.', ['Slice for a dessert board', 'Serve with tea', 'Give as a gift']],
   'rose-water': ['Distilled rose water, the fragrance of Lebanese desserts.', ['Flavor syrups for sweets', 'Add to lemonade', 'Scent rice puddings']],
   'orange-blossom-water': ['Distilled orange blossom water with a delicate floral aroma.', ['Flavor ashta and puddings', 'Add a drop to white coffee', 'Use in maamoul dough']],
-  'extra-virgin-olive-oil': ['Cold-extracted olive oil with a fresh, peppery finish.', ['Drizzle over hummus and labneh', 'Dress tabbouleh and fattoush', 'Dip with bread and za’atar']],
+  'extra-virgin-olive-oil': ['First-press extra virgin olive oil with a fresh, peppery finish, in a family-size 3 liter bottle.', ['Drizzle over hummus and labneh', 'Dress tabbouleh and fattoush', 'Dip with bread and za’atar']],
   'olive-oil-blend': ['A lighter olive oil blend for everyday cooking.', ['Sauté vegetables', 'Roast potatoes', 'Fry falafel']],
   'black-olives': ['Ripe black olives with a soft texture and rich flavor.', ['Serve at breakfast', 'Add to pizza and man’oushe', 'Snack with cheese']],
-  tahini: ['Smooth paste of ground sesame seeds, the base of hummus and tarator.', ['Make hummus and baba ghanouj', 'Whisk into tarator sauce', 'Drizzle over roasted vegetables']],
+  tahini: ['Smooth sesame tahini, the base of hummus, tarator and countless Lebanese dressings.', ['Make hummus and baba ghanouj', 'Whisk into tarator sauce', 'Drizzle over roasted vegetables']],
   'tomato-paste': ['Concentrated paste of sun-ripened tomatoes.', ['Start a stew', 'Flavor stuffed vegetables', 'Enrich a rice dish']],
-  'sweet-red-pepper-paste': ['Mild red pepper paste with a sweet, smoky depth.', ['Mix into muhammara', 'Spread on man’oushe', 'Marinate chicken']],
+  'sweet-pepper-paste': ['Sweet red pepper paste made from sun-ripened peppers, rich and mild.', ['Mix into muhammara', 'Spread on man’oushe', 'Marinate chicken']],
   'hot-red-pepper-paste': ['Spicy red pepper paste for those who like heat.', ['Stir into stews', 'Make a quick chili dip', 'Spice up marinades']],
   'pomegranate-molasses': ['Tart, dark syrup made by slowly reducing pomegranate juice.', ['Dress fattoush', 'Glaze grilled meats', 'Mix into muhammara']],
 };
@@ -101,14 +103,13 @@ export type Category = (typeof categories)[number];
 export const allProducts = categories.flatMap((c) => c.products);
 
 export const featuredSlugs = [
-  'pickled-turnips',
-  'labneh',
+  'labne-kefir-cheese-balls',
   'extra-virgin-olive-oil',
-  'sweet-red-pepper-paste',
-  'pistachio-halawa',
-  'pomegranate-molasses',
-  'date-maamoul',
-  'green-olives-in-brine',
+  'makdous-eggplant',
+  'sweet-pepper-paste',
+  'labne-kefir-cheese-balls-chili',
+  'green-olives',
+  'tahini',
 ];
 
 export const featured = featuredSlugs
@@ -116,4 +117,7 @@ export const featured = featuredSlugs
   .filter((p): p is Product => Boolean(p));
 
 export const productUrl = (p: Product) => `/products/${p.category}/${p.slug}/`;
-export const productImage = (p: Product) => `/images/products/${p.slug}.svg`;
+// Real products use their photo; placeholders use the drawn packshot.
+export const productImage = (p: Product, small = false) =>
+  p.images[0] ? (small ? p.images[0].replace('.webp', '-600.webp') : p.images[0]) : `/images/products/${p.slug}.svg`;
+export const productAlt = (p: Product) => (p.placeholder ? `${p.name} placeholder packaging` : `Al Wali ${p.name} ${p.sizes[0] ?? ''}`.trim());

@@ -1,5 +1,5 @@
 {
-  "_note": "PLACEHOLDER catalog. Category names come from Rami; subcategories and products are examples to replace with the real list. Do not publish placeholder products.",
+  "_note": "Products with placeholder: false are real Al Wali products (photos from Rami, 2026-10-20). The rest are PLACEHOLDERS to replace with the real list.",
   "categories": [
     {
       "slug": "pickles",
@@ -25,9 +25,61 @@
         {
           "slug": "olives-in-brine",
           "name": "Olives in brine"
+        },
+        {
+          "slug": "makdous",
+          "name": "Makdous (stuffed eggplant)"
         }
       ],
       "products": [
+        {
+          "slug": "green-olives",
+          "placeholder": false,
+          "name": "Green Olives",
+          "nameAr": "زيتون أخضر",
+          "subcategory": "olives-in-brine",
+          "sizes": [
+            "1,050 g (2.6 lb) jar"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": [
+            "/images/products/photos/green-olives.webp"
+          ]
+        },
+        {
+          "slug": "makdous-eggplant",
+          "placeholder": false,
+          "name": "Makdous Eggplant",
+          "nameAr": "مكدوس الباذنجان",
+          "subcategory": "makdous",
+          "sizes": [
+            "35 oz (1 kg) jar"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": [
+            "/images/products/photos/makdous-eggplant.webp"
+          ]
+        },
         {
           "slug": "pickled-cucumbers",
           "placeholder": true,
@@ -115,28 +167,6 @@
             "shelfLife": ""
           },
           "images": []
-        },
-        {
-          "slug": "green-olives-in-brine",
-          "placeholder": true,
-          "name": "Green Olives in Brine",
-          "nameAr": "زيتون أخضر",
-          "subcategory": "olives-in-brine",
-          "sizes": [
-            "650 g jar"
-          ],
-          "shortDescription": "",
-          "ingredients": "",
-          "allergens": [],
-          "storage": "",
-          "badges": [],
-          "countryOfOrigin": "Lebanon",
-          "trade": {
-            "upc": "",
-            "casePack": "",
-            "shelfLife": ""
-          },
-          "images": []
         }
       ]
     },
@@ -164,13 +194,13 @@
       ],
       "products": [
         {
-          "slug": "labneh",
-          "placeholder": true,
-          "name": "Labneh",
-          "nameAr": "لبنة",
-          "subcategory": "labneh",
+          "slug": "labne-kefir-cheese-balls",
+          "placeholder": false,
+          "name": "Labne Kefir Cheese Balls",
+          "nameAr": "لبنة معزة",
+          "subcategory": "labneh-balls",
           "sizes": [
-            "400 g tub"
+            "21.2 oz (600 g) jar"
           ],
           "shortDescription": "",
           "ingredients": "",
@@ -183,16 +213,42 @@
             "casePack": "",
             "shelfLife": ""
           },
-          "images": []
+          "images": [
+            "/images/products/photos/labne-kefir-cheese-balls.webp"
+          ]
         },
         {
-          "slug": "labneh-balls-in-olive-oil",
-          "placeholder": true,
-          "name": "Labneh Balls in Olive Oil",
-          "nameAr": "لبنة مكعزلة بالزيت",
+          "slug": "labne-kefir-cheese-balls-chili",
+          "placeholder": false,
+          "name": "Labne Kefir Cheese Balls with Chili",
+          "nameAr": "لبنة معزة بالحر",
           "subcategory": "labneh-balls",
           "sizes": [
-            "500 g jar"
+            "21.2 oz (600 g) jar"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": [
+            "/images/products/photos/labne-kefir-cheese-balls-chili.webp"
+          ]
+        },
+        {
+          "slug": "labneh",
+          "placeholder": true,
+          "name": "Labneh",
+          "nameAr": "لبنة",
+          "subcategory": "labneh",
+          "sizes": [
+            "400 g tub"
           ],
           "shortDescription": "",
           "ingredients": "",
@@ -483,12 +539,12 @@
       "products": [
         {
           "slug": "extra-virgin-olive-oil",
-          "placeholder": true,
+          "placeholder": false,
           "name": "Extra Virgin Olive Oil",
           "nameAr": "زيت زيتون بكر ممتاز",
           "subcategory": "extra-virgin-olive-oil",
           "sizes": [
-            "1 L bottle"
+            "101.4 oz (3 L) bottle"
           ],
           "shortDescription": "",
           "ingredients": "",
@@ -501,7 +557,33 @@
             "casePack": "",
             "shelfLife": ""
           },
-          "images": []
+          "images": [
+            "/images/products/photos/extra-virgin-olive-oil.webp"
+          ]
+        },
+        {
+          "slug": "tahini",
+          "placeholder": false,
+          "name": "Tahini Sesame Dressing",
+          "nameAr": "طحينة السمسم",
+          "subcategory": "tahini",
+          "sizes": [
+            "Jar (net weight to confirm)"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": [
+            "/images/products/photos/tahini.webp"
+          ]
         },
         {
           "slug": "olive-oil-blend",
@@ -546,28 +628,6 @@
             "shelfLife": ""
           },
           "images": []
-        },
-        {
-          "slug": "tahini",
-          "placeholder": true,
-          "name": "Tahini",
-          "nameAr": "طحينة",
-          "subcategory": "tahini",
-          "sizes": [
-            "450 g jar"
-          ],
-          "shortDescription": "",
-          "ingredients": "",
-          "allergens": [],
-          "storage": "",
-          "badges": [],
-          "countryOfOrigin": "Lebanon",
-          "trade": {
-            "upc": "",
-            "casePack": "",
-            "shelfLife": ""
-          },
-          "images": []
         }
       ]
     },
@@ -595,13 +655,13 @@
       ],
       "products": [
         {
-          "slug": "tomato-paste",
-          "placeholder": true,
-          "name": "Tomato Paste",
-          "nameAr": "معجون بندورة",
-          "subcategory": "tomato-paste",
+          "slug": "sweet-pepper-paste",
+          "placeholder": false,
+          "name": "Sweet Pepper Paste",
+          "nameAr": "دبس فليفلة حلوة",
+          "subcategory": "red-pepper-paste",
           "sizes": [
-            "650 g jar"
+            "21.1 oz (600 g) jar"
           ],
           "shortDescription": "",
           "ingredients": "",
@@ -614,14 +674,16 @@
             "casePack": "",
             "shelfLife": ""
           },
-          "images": []
+          "images": [
+            "/images/products/photos/sweet-pepper-paste.webp"
+          ]
         },
         {
-          "slug": "sweet-red-pepper-paste",
+          "slug": "tomato-paste",
           "placeholder": true,
-          "name": "Sweet Red Pepper Paste",
-          "nameAr": "دبس فليفلة حلوة",
-          "subcategory": "red-pepper-paste",
+          "name": "Tomato Paste",
+          "nameAr": "معجون بندورة",
+          "subcategory": "tomato-paste",
           "sizes": [
             "650 g jar"
           ],

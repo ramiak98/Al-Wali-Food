@@ -498,6 +498,7 @@ function packshot(p) {
 
 for (const cat of catalog.categories) {
   for (const p of cat.products) {
+    if (!p.placeholder) continue; // real products use their photos in public/images/products/photos
     writeFileSync(new URL(`products/${p.slug}.svg`, OUT), packshot(p));
   }
 }

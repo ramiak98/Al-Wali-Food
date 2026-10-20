@@ -1,11 +1,12 @@
 ---
-import { productImage, productUrl, type Product } from '../data/catalog';
+import { productAlt, productImage, productUrl, type Product } from '../data/catalog';
 interface Props { product: Product }
 const { product: p } = Astro.props;
 ---
 <a href={productUrl(p)} class="group flex flex-col bg-white/70 border border-[#e6dccb] rounded-[6px] overflow-hidden hover:border-gold transition-colors" data-sub={p.subcategory}>
-  <div class="aspect-square bg-[#f3ece0] overflow-hidden">
-    <img src={productImage(p)} alt={`${p.name} placeholder packaging`} class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" loading="lazy" />
+  <div class={`relative aspect-square overflow-hidden ${p.placeholder ? 'bg-[#f3ece0]' : 'bg-white'}`}>
+    <img src={productImage(p, true)} alt={productAlt(p)} class={`w-full h-full group-hover:scale-[1.03] transition-transform duration-500 ${p.placeholder ? 'object-cover' : 'object-contain'}`} loading="lazy" />
+    {p.placeholder && <span class="absolute top-2 left-2 rounded-full bg-ink/75 text-white text-[0.68rem] font-semibold uppercase tracking-[0.12em] px-2.5 py-1">Sample</span>}
   </div>
   <div class="p-4 flex flex-col gap-1 flex-1">
     <h3 class="text-[1.35rem] text-ink group-hover:text-cedar">{p.name}</h3>
