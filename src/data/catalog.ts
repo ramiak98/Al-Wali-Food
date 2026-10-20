@@ -24,21 +24,21 @@ const copy: Record<string, CategoryCopy> = {
     line: 'Crunchy, tangy, made for the mezze table.',
     intro:
       'No mezze table is complete without a bowl of pickles. Our cucumbers, pink turnips and peppers are pickled the traditional way for that bright crunch that goes with everything from falafel to shawarma.',
-    photo: 'pickle-jars',
+    photo: 'cucumber-vine',
     seoTitle: 'Pickles | Turnip, Cucumber, Olives & Makdous',
   },
   dairy: {
     line: 'Creamy labneh and cheeses, made the traditional way.',
     intro:
       'Thick, tangy labneh drizzled with olive oil is a breakfast staple across the Middle East. Discover our labneh, labneh balls and traditional white cheeses.',
-    photo: 'labneh-breakfast',
+    photo: 'dairy-goats',
     seoTitle: 'Labneh & Cheeses',
   },
   'confectionery-desserts': {
     line: 'Halawa, maamoul and sweets for every celebration.',
     intro:
       'Every celebration ends with something sweet. From tahini halawa to date-filled maamoul and rose-scented syrups, bring that moment home.',
-    photo: 'sweets-tray',
+    photo: 'date-palm',
     seoTitle: 'Sweets, Halawa & Maamoul',
   },
   'olive-oil': {
@@ -52,7 +52,7 @@ const copy: Record<string, CategoryCopy> = {
     line: 'Rich tomato and pepper pastes, the base of every stew.',
     intro:
       'Sun-ripened tomatoes and peppers, slowly cooked down into deep, concentrated pastes. A spoonful is the start of countless stews, dips and marinades.',
-    photo: 'sun-drying',
+    photo: 'tomato-vine',
     seoTitle: 'Tomato & Red Pepper Paste',
   },
 };

@@ -19,45 +19,55 @@ export const photos = {
     unsplash: 'photo-1664791461482-79f5deee490f',
     alt: 'Fresh vegetables and fruit from the harvest',
   },
-  mezze: {
-    id: 'IMG-06',
-    unsplash: 'photo-1743674453093-592bed88018e',
-    alt: 'A platter of mezze dishes',
-  },
   souk: {
     id: 'IMG-08',
     unsplash: 'photo-1758745464235-ccb8c1253074',
     alt: 'Colorful spices and dried goods displayed at a market stall',
-  },
-  'pickle-jars': {
-    id: 'IMG-09',
-    unsplash: 'photo-1774456567094-726973275d34',
-    alt: 'Pickles with dill and spices in a glass jar',
   },
   'olive-grove': {
     id: 'IMG-11',
     unsplash: 'photo-1697829234209-5497520a9fc6',
     alt: 'A grove of olive trees with mountains in the background',
   },
-  'sun-drying': {
-    id: 'IMG-12',
-    unsplash: 'photo-1641738119374-0a0ed1fb1764',
-    alt: 'Ripe red peppers on a wooden table',
-  },
-  'labneh-breakfast': {
-    id: 'IMG-13',
-    unsplash: 'photo-1783696074463-3fb850d181a1',
-    alt: 'Creamy dips drizzled with olive oil, ready for the breakfast table',
-  },
-  'sweets-tray': {
-    id: 'IMG-14',
-    unsplash: 'photo-1761828122856-8703baac8e86',
-    alt: 'Golden pastries filled with chopped pistachios',
-  },
   warehouse: {
     id: 'IMG-15',
     unsplash: 'photo-1757801752791-8bcd63cec878',
     alt: 'Store shelves stocked with spices and pantry goods',
+  },
+  'dairy-goats': {
+    id: 'IMG-16',
+    unsplash: 'photo-1622837699015-9a4cb8b7a94b',
+    alt: 'A herd of goats grazing on a green hillside',
+  },
+  'dairy-cows': {
+    id: 'IMG-17',
+    unsplash: 'photo-1787662977220-3d6235361df5',
+    alt: 'Cows with bells grazing on a grassy mountain slope',
+  },
+  'tomato-vine': {
+    id: 'IMG-18',
+    unsplash: 'photo-1471194402529-8e0f5a675de6',
+    alt: 'Ripe tomatoes hanging on the vine',
+  },
+  'pepper-plant': {
+    id: 'IMG-19',
+    unsplash: 'photo-1663500617750-350be54823e2',
+    alt: 'A red pepper ripening on the plant',
+  },
+  'cucumber-vine': {
+    id: 'IMG-20',
+    unsplash: 'photo-1757111084609-17bbd129a7f6',
+    alt: 'Green cucumbers growing on a vine in the sun',
+  },
+  'date-palm': {
+    id: 'IMG-21',
+    unsplash: 'photo-1757525473919-2ef9bc84d811',
+    alt: 'Clusters of ripe dates hanging from a palm tree',
+  },
+  pistachios: {
+    id: 'IMG-22',
+    unsplash: 'photo-1704079662049-d00890d21a69',
+    alt: 'A pile of freshly harvested pistachios',
   },
 } as const;
 

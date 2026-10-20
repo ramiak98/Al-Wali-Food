@@ -6,18 +6,18 @@ import OliveMark from '../components/OliveMark.astro';
 import { categories, featured } from '../data/catalog';
 import type { PhotoKey } from '../data/photos';
 
-const slides: PhotoKey[] = ['mezze', 'olive-harvest', 'souk'];
+const slides: PhotoKey[] = ['olive-harvest', 'dairy-goats', 'tomato-vine'];
 const promises = [
   { title: 'Authentic recipes', line: 'Traditional flavors from the Mediterranean and beyond.', icon: 'cedar' },
   { title: 'Simple ingredients', line: 'Real ingredients you can pronounce.', icon: 'olive' },
   { title: 'Quality you can trust', line: 'Produced to strict food safety standards.', icon: 'shield' },
 ];
 const gallery: { name: PhotoKey; cls: string }[] = [
-  { name: 'mezze', cls: 'md:col-span-2 md:row-span-2' },
-  { name: 'olive-harvest', cls: '' },
-  { name: 'labneh-breakfast', cls: '' },
-  { name: 'souk', cls: '' },
-  { name: 'pickle-jars', cls: '' },
+  { name: 'dairy-cows', cls: 'md:col-span-2 md:row-span-2' },
+  { name: 'pepper-plant', cls: '' },
+  { name: 'cucumber-vine', cls: '' },
+  { name: 'olive-grove', cls: '' },
+  { name: 'pistachios', cls: '' },
 ];
 ---
 <Base title="Al Wali Food | Mediterranean Pickles, Dairy, Olive Oil & More" fullTitle description="Authentic Mediterranean and Middle Eastern foods for American tables. Discover Al Wali Food pickles, labneh, olive oil, pastes and sweets.">
@@ -132,9 +132,9 @@ const gallery: { name: PhotoKey; cls: string }[] = [
   <section class="bg-ink text-cream">
     <div class="wrap py-16 md:py-24">
       <div class="max-w-2xl mb-10">
-        <p class="eyebrow !text-[#d9bd73]">Around the table</p>
-        <h2 class="text-[2.3rem] md:text-[3rem] mt-2">A taste of the Mediterranean</h2>
-        <p class="mt-3 text-[#d8cdb9]">Every jar carries a little of where it was made: its sun, its soil, its hospitality.</p>
+        <p class="eyebrow !text-[#d9bd73]">At the source</p>
+        <h2 class="text-[2.3rem] md:text-[3rem] mt-2">Where our flavors begin</h2>
+        <p class="mt-3 text-[#d8cdb9]">Sun-ripened peppers and tomatoes, olive groves, and herds grazing on mountain pastures. Every jar starts in the field.</p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 gap-3 md:h-[560px]">
         {gallery.map((g) => (

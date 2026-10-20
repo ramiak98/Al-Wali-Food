@@ -136,103 +136,13 @@ function jar(x, y, w, h, fill, lid = '#2b2420', label = '#faf6ee', band = '#a63a
     `<rect x="${x + w * 0.12}" y="${y + h * 0.06}" width="${w * 0.1}" height="${h * 0.8}" rx="6" fill="#ffffff" opacity=".18"/>`;
 }
 
-// IMG-09 Pickling jars in a traditional kitchen
-scenes['pickle-jars'] = (() => {
-  const r = rng(9);
-  const defs = lin('s', [[0, '#e6d3b3'], [1, '#c9ab80']]) + grain;
-  let b = `<rect width="${W}" height="${H}" fill="url(#s)"/>`;
-  // arched window
-  b += `<path d="M1080 120 h300 v420 h-300z M1080 270 a150 150 0 0 1 300 0" fill="#f6e7c4"/>`;
-  b += `<path d="M1080 270 a150 150 0 0 1 300 0 v270 h-300z" fill="#bcd3d9"/>`;
-  b += `<rect x="1225" y="140" width="10" height="400" fill="#c9ab80"/>`;
-  // shelf
-  b += `<rect x="0" y="600" width="${W}" height="30" fill="#7a5233"/>`;
-  b += `<rect x="0" y="630" width="${W}" height="${H - 630}" fill="#a77c51"/>`;
-  const fills = ['#d64f7a', '#9db35a', '#c94f6d', '#7f9a46', '#e0708f', '#b8c46a', '#d65a70'];
-  for (let i = 0; i < 7; i++) {
-    const w = 130 + r() * 50;
-    const h = 220 + r() * 120;
-    b += jar(70 + i * 210, 600 - h, w, h, fills[i], '#5b4636', '#f4ead4', '#1f4d3a');
-  }
-  b += grainRect;
-  return svg(b, defs);
-})();
 
-// IMG-12 Peppers and tomatoes sun-drying on a rooftop
-scenes['sun-drying'] = (() => {
-  const r = rng(12);
-  const defs = sky('s', [[0, '#8fbbd6'], [1, '#e9e1c6']]) + grain;
-  let b = `<rect width="${W}" height="${H}" fill="url(#s)"/>`;
-  b += smoothRidge(r, 420, 120, 5, '#9aa59a');
-  b += `<path d="M0 520 L${W} 470 V${H} H0Z" fill="#e2cfa8"/>`;
-  for (let row = 0; row < 4; row++) {
-    const y = 560 + row * 110;
-    b += `<path d="M60 ${y + 40 - row * 10} L1540 ${y - row * 10}" stroke="#d9c7a2" stroke-width="80" stroke-linecap="round"/>`;
-    for (let i = 0; i < 26; i++) {
-      const x = 100 + i * 55 + r() * 10;
-      const yy = y + 40 - row * 10 - ((x - 60) / 1480) * 40;
-      const tomato = (i + row) % 3 === 0;
-      b += tomato
-        ? `<circle cx="${x.toFixed(0)}" cy="${yy.toFixed(0)}" r="20" fill="#c8402c"/>`
-        : `<ellipse cx="${x.toFixed(0)}" cy="${yy.toFixed(0)}" rx="26" ry="11" transform="rotate(${(r() * 50 - 25).toFixed(0)} ${x.toFixed(0)} ${yy.toFixed(0)})" fill="${r() > 0.3 ? '#a8261c' : '#d0552b'}"/>`;
-    }
-  }
-  b += grainRect;
-  return svg(b, defs);
-})();
 
 function bowl(cx, cy, rad, fill, rim = '#f4efe4') {
   return `<circle cx="${cx}" cy="${cy}" r="${rad + 18}" fill="${rim}"/><circle cx="${cx}" cy="${cy}" r="${rad}" fill="${fill}"/>`;
 }
 
-// IMG-13 Labneh with olive oil and za'atar
-scenes['labneh-breakfast'] = (() => {
-  const r = rng(13);
-  const defs = lin('s', [[0, '#b98f63'], [1, '#8a643f']], 1, 1) + grain;
-  let b = `<rect width="${W}" height="${H}" fill="url(#s)"/>`;
-  for (let i = 0; i < 9; i++) b += `<rect x="0" y="${i * 115}" width="${W}" height="3" fill="#00000014"/>`;
-  b += `<rect x="120" y="120" width="420" height="760" rx="10" fill="#efe4cf" opacity=".9"/>`;
-  b += bowl(800, 500, 260, '#f7f2e8', '#2c5c8a');
-  b += `<path d="M640 470 q160 -120 320 0 q-160 120 -320 0" fill="#d1b23a" opacity=".85"/>`;
-  for (let i = 0; i < 160; i++) {
-    const a = r() * Math.PI * 2;
-    const d = r() * 210;
-    b += `<circle cx="${(800 + Math.cos(a) * d).toFixed(0)}" cy="${(500 + Math.sin(a) * d).toFixed(0)}" r="4" fill="#5d6b2e"/>`;
-  }
-  b += bowl(1300, 260, 110, '#3b3a22');
-  for (let i = 0; i < 14; i++) b += `<ellipse cx="${1240 + (i % 5) * 30}" cy="${210 + Math.floor(i / 5) * 40}" rx="16" ry="12" fill="#556b2f"/>`;
-  b += bowl(1320, 740, 120, '#d64f7a');
-  // bread
-  b += `<ellipse cx="330" cy="560" rx="170" ry="260" fill="#e2c38d"/><ellipse cx="330" cy="560" rx="140" ry="225" fill="#d8b276"/>`;
-  b += grainRect;
-  return svg(b, defs);
-})();
 
-// IMG-14 Sweets on a brass tray with Arabic coffee
-scenes['sweets-tray'] = (() => {
-  const r = rng(14);
-  const defs = lin('s', [[0, '#5a2f2a'], [1, '#3a1e1b']], 1, 1) + grain +
-    `<radialGradient id="brass" cx=".4" cy=".4" r=".7"><stop offset="0" stop-color="#f0cf7a"/><stop offset="1" stop-color="#a87a2c"/></radialGradient>`;
-  let b = `<rect width="${W}" height="${H}" fill="url(#s)"/>`;
-  b += `<circle cx="700" cy="500" r="420" fill="url(#brass)"/>`;
-  b += `<circle cx="700" cy="500" r="380" fill="none" stroke="#8a6224" stroke-width="6" stroke-dasharray="4 14"/>`;
-  for (let i = 0; i < 9; i++) {
-    const a = (i / 9) * Math.PI * 2;
-    const x = 700 + Math.cos(a) * 250;
-    const y = 500 + Math.sin(a) * 250;
-    b += `<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="62" fill="#e8c88f"/>`;
-    for (let k = 0; k < 8; k++) {
-      const aa = (k / 8) * Math.PI * 2;
-      b += `<path d="M${x.toFixed(0)} ${y.toFixed(0)} l${(Math.cos(aa) * 50).toFixed(0)} ${(Math.sin(aa) * 50).toFixed(0)}" stroke="#c99e5e" stroke-width="5"/>`;
-    }
-  }
-  for (let i = 0; i < 12; i++) b += `<rect x="${590 + (i % 4) * 56}" y="${410 + Math.floor(i / 4) * 56}" width="48" height="48" rx="8" fill="${i % 2 ? '#e7a0b0' : '#f3d9e0'}"/>`;
-  // coffee cup and dallah
-  b += `<circle cx="1320" cy="300" r="90" fill="#f4efe4"/><circle cx="1320" cy="300" r="70" fill="#4a2b17"/>`;
-  b += `<circle cx="1360" cy="720" r="120" fill="#b8892f"/><path d="M1300 600 q60 -140 120 0z" fill="#b8892f"/><path d="M1460 690 q80 -40 110 -110" stroke="#b8892f" stroke-width="22" fill="none"/>`;
-  b += grainRect;
-  return svg(b, defs);
-})();
 
 // IMG-08 Village souk: arches, sacks and jars
 scenes['souk'] = (() => {
@@ -255,22 +165,6 @@ scenes['souk'] = (() => {
   return svg(b, defs);
 })();
 
-// IMG-06 Mezze spread, overhead
-scenes['mezze'] = (() => {
-  const r = rng(6);
-  const defs = lin('s', [[0, '#7f5a3a'], [1, '#5e3f27']], 1, 1) + grain;
-  let b = `<rect width="${W}" height="${H}" fill="url(#s)"/>`;
-  const dishes = [
-    [300, 280, 150, '#f7f2e8'], [720, 230, 120, '#d64f7a'], [1120, 300, 170, '#c8402c'],
-    [460, 700, 170, '#e9d8a6'], [880, 620, 140, '#7f9a46'], [1300, 720, 130, '#3b3a22'],
-  ];
-  for (const [x, y, rad, c] of dishes) b += bowl(x, y, rad, c, '#efe7d6');
-  b += `<path d="M260 280 q40 -50 80 0" stroke="#d1b23a" stroke-width="18" fill="none" stroke-linecap="round"/>`;
-  for (let i = 0; i < 40; i++) b += `<circle cx="${(880 + (r() - 0.5) * 220).toFixed(0)}" cy="${(620 + (r() - 0.5) * 220).toFixed(0)}" r="9" fill="#4f6a2a"/>`;
-  for (let i = 0; i < 30; i++) b += `<circle cx="${(1120 + (r() - 0.5) * 260).toFixed(0)}" cy="${(300 + (r() - 0.5) * 260).toFixed(0)}" r="6" fill="#f0c7a0"/>`;
-  b += grainRect;
-  return svg(b, defs);
-})();
 
 // IMG-04 Fresh vegetables from the Bekaa (basket overhead)
 scenes['fresh-produce'] = (() => {
@@ -317,6 +211,129 @@ scenes['warehouse'] = (() => {
         cx += w + 8;
       }
     }
+  }
+  b += grainRect;
+  return svg(b, defs);
+})();
+
+// Where the ingredients come from: animals, fields and orchards.
+function goat(x, y, s, body, r) {
+  const k = (v) => (v * s).toFixed(0);
+  let g = `<ellipse cx="${x}" cy="${y}" rx="${k(70)}" ry="${k(38)}" fill="${body}"/>`;
+  for (const dx of [-45, -25, 25, 45]) g += `<rect x="${(x + dx * s).toFixed(0)}" y="${y}" width="${k(10)}" height="${k(62)}" fill="${body}"/>`;
+  g += `<path d="M${x + 55 * s} ${y - 15 * s} l${k(30)} -${k(55)} l${k(34)} ${k(12)} l-${k(18)} ${k(48)}z" fill="${body}"/>`;
+  g += `<path d="M${x + 88 * s} ${y - 70 * s} q-${k(20)} -${k(30)} -${k(4)} -${k(46)}" stroke="#4a3b2c" stroke-width="${k(5)}" fill="none"/>`;
+  return g;
+}
+function cow(x, y, s, r) {
+  const k = (v) => (v * s).toFixed(0);
+  let g = `<rect x="${x}" y="${y}" width="${k(170)}" height="${k(80)}" rx="${k(30)}" fill="#8a5a36"/>`;
+  g += `<ellipse cx="${(x + 60 * s).toFixed(0)}" cy="${(y + 30 * s).toFixed(0)}" rx="${k(26)}" ry="${k(20)}" fill="#f2ead8"/>`;
+  for (const dx of [18, 40, 130, 150]) g += `<rect x="${(x + dx * s).toFixed(0)}" y="${(y + 70 * s).toFixed(0)}" width="${k(14)}" height="${k(60)}" fill="#6e4528"/>`;
+  g += `<rect x="${(x + 160 * s).toFixed(0)}" y="${(y - 20 * s).toFixed(0)}" width="${k(50)}" height="${k(56)}" rx="${k(18)}" fill="#8a5a36"/>`;
+  g += `<circle cx="${(x + 168 * s).toFixed(0)}" cy="${(y + 46 * s).toFixed(0)}" r="${k(8)}" fill="#d8b04a"/>`;
+  return g;
+}
+function leafyRow(r, y, n, leaf, dark, rad) {
+  let g = '';
+  for (let i = 0; i < n; i++) {
+    const x = (W / n) * i + r() * 40;
+    g += `<circle cx="${x.toFixed(0)}" cy="${(y + r() * 30).toFixed(0)}" r="${(rad * (0.8 + r() * 0.5)).toFixed(0)}" fill="${i % 2 ? leaf : dark}"/>`;
+  }
+  return g;
+}
+
+scenes['dairy-goats'] = (() => {
+  const r = rng(21);
+  const defs = sky('s', [[0, '#bcd6dc'], [1, '#eef0d8']]) + grain;
+  let b = `<rect width="${W}" height="${H}" fill="url(#s)"/>`;
+  b += smoothRidge(r, 470, 120, 5, '#9fb08f');
+  b += smoothRidge(r, 620, 60, 6, '#8fae5e');
+  const coats = ['#f3eee2', '#7a5032', '#e9e1cf', '#3b302a', '#c49a6c', '#f3eee2'];
+  for (let i = 0; i < 6; i++) b += goat(180 + i * 240 + r() * 40, 700 + (i % 2) * 90, 0.9 + r() * 0.4, coats[i], r);
+  b += grainRect;
+  return svg(b, defs);
+})();
+
+scenes['dairy-cows'] = (() => {
+  const r = rng(22);
+  const defs = sky('s', [[0, '#a9c7d6'], [1, '#f0ead2']]) + grain;
+  let b = `<rect width="${W}" height="${H}" fill="url(#s)"/>`;
+  b += smoothRidge(r, 380, 200, 4, '#8b9c96');
+  b += smoothRidge(r, 560, 90, 5, '#7fa252');
+  for (let i = 0; i < 4; i++) b += cow(120 + i * 360 + r() * 60, 640 + (i % 2) * 110, 1 + r() * 0.3, r);
+  b += grainRect;
+  return svg(b, defs);
+})();
+
+scenes['tomato-vine'] = (() => {
+  const r = rng(23);
+  const defs = lin('s', [[0, '#5f7f3c'], [1, '#2f4a22']], 1, 1) + grain;
+  let b = `<rect width="${W}" height="${H}" fill="url(#s)"/>`;
+  for (let i = 0; i < 90; i++) b += `<ellipse cx="${(r() * W).toFixed(0)}" cy="${(r() * H).toFixed(0)}" rx="${(40 + r() * 50).toFixed(0)}" ry="${(18 + r() * 20).toFixed(0)}" transform="rotate(${(r() * 180).toFixed(0)})" fill="${r() > 0.5 ? '#4d7a2e' : '#6b9a3c'}" opacity=".8"/>`;
+  for (let c = 0; c < 4; c++) {
+    const cx = 250 + c * 370, cy = 380 + (c % 2) * 220;
+    b += `<path d="M${cx} 0 Q${cx + 30} ${cy / 2} ${cx} ${cy}" stroke="#3c5c22" stroke-width="10" fill="none"/>`;
+    for (let t = 0; t < 5; t++) {
+      const x = cx + (r() - 0.5) * 180, y = cy + (r() - 0.2) * 160;
+      b += `<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${(46 + r() * 20).toFixed(0)}" fill="${t === 4 ? '#e2803a' : '#c8302a'}"/><path d="M${(x - 16).toFixed(0)} ${(y - 44).toFixed(0)} l16 10 l16 -10" stroke="#3c5c22" stroke-width="7" fill="none"/>`;
+    }
+  }
+  b += grainRect;
+  return svg(b, defs);
+})();
+
+scenes['pepper-plant'] = (() => {
+  const r = rng(24);
+  const defs = sky('s', [[0, '#cfe0c0'], [1, '#86a65a']]) + grain;
+  let b = `<rect width="${W}" height="${H}" fill="url(#s)"/>`;
+  for (let row = 0; row < 3; row++) b += leafyRow(r, 360 + row * 230, 12, '#4f7d2f', '#3d6624', 90 - row * 10);
+  for (let i = 0; i < 26; i++) {
+    const x = 60 + r() * 1480, y = 380 + r() * 560;
+    b += `<path d="M${x.toFixed(0)} ${y.toFixed(0)} q34 10 22 96 q-8 30 -30 6 q-30 -50 8 -102z" fill="${r() > 0.25 ? '#b8231c' : '#5f8a2a'}"/>`;
+  }
+  b += grainRect;
+  return svg(b, defs);
+})();
+
+scenes['cucumber-vine'] = (() => {
+  const r = rng(25);
+  const defs = sky('s', [[0, '#e3ecd0'], [1, '#9cbc6c']]) + grain;
+  let b = `<rect width="${W}" height="${H}" fill="url(#s)"/>`;
+  for (let x = 80; x < W; x += 160) b += `<path d="M${x} 0 V${H}" stroke="#d8d2c2" stroke-width="4"/>`;
+  for (let y = 80; y < H; y += 160) b += `<path d="M0 ${y} H${W}" stroke="#d8d2c2" stroke-width="4"/>`;
+  for (let i = 0; i < 40; i++) b += `<path d="M${(r() * W).toFixed(0)} ${(r() * H).toFixed(0)} l60 -70 l60 70 l-30 50 h-60z" fill="${r() > 0.5 ? '#5d8f32' : '#4a7a26'}"/>`;
+  for (let i = 0; i < 14; i++) {
+    const x = 80 + r() * 1440, y = 120 + r() * 700;
+    b += `<rect x="${x.toFixed(0)}" y="${y.toFixed(0)}" width="38" height="${(150 + r() * 60).toFixed(0)}" rx="19" fill="#2f5a1e"/><circle cx="${(x + 19).toFixed(0)}" cy="${(y - 6).toFixed(0)}" r="14" fill="#f2c434"/>`;
+  }
+  b += grainRect;
+  return svg(b, defs);
+})();
+
+scenes['date-palm'] = (() => {
+  const r = rng(26);
+  const defs = sky('s', [[0, '#8fbfe0'], [1, '#f4e3bc']]) + grain;
+  let b = `<rect width="${W}" height="${H}" fill="url(#s)"/>`;
+  b += `<path d="M760 ${H} Q800 600 780 300 h50 Q860 600 840 ${H}z" fill="#8a6a46"/>`;
+  for (let i = 0; i < 12; i++) {
+    const a = (i / 12) * Math.PI * 2;
+    b += `<path d="M805 300 Q${(805 + Math.cos(a) * 380).toFixed(0)} ${(300 + Math.sin(a) * 160 - 120).toFixed(0)} ${(805 + Math.cos(a) * 640).toFixed(0)} ${(300 + Math.sin(a) * 300).toFixed(0)}" stroke="#4f7a36" stroke-width="34" fill="none" stroke-linecap="round"/>`;
+  }
+  for (const [cx, cy] of [[690, 400], [930, 420], [810, 450]]) {
+    for (let i = 0; i < 40; i++) b += `<ellipse cx="${(cx + (r() - 0.5) * 120).toFixed(0)}" cy="${(cy + r() * 200).toFixed(0)}" rx="13" ry="20" fill="${r() > 0.4 ? '#c6782a' : '#8a3f1c'}"/>`;
+  }
+  b += grainRect;
+  return svg(b, defs);
+})();
+
+scenes['pistachios'] = (() => {
+  const r = rng(27);
+  const defs = lin('s', [[0, '#d9c49a'], [1, '#b89a68']], 1, 1) + grain;
+  let b = `<rect width="${W}" height="${H}" fill="url(#s)"/>`;
+  for (let i = 0; i < 320; i++) {
+    const x = r() * W, y = r() * H, a = (r() * 180).toFixed(0);
+    b += `<g transform="rotate(${a} ${x.toFixed(0)} ${y.toFixed(0)})"><ellipse cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" rx="34" ry="22" fill="#e8d7b0" stroke="#b39566" stroke-width="3"/><ellipse cx="${(x + 6).toFixed(0)}" cy="${y.toFixed(0)}" rx="16" ry="9" fill="${r() > 0.5 ? '#8aa83a' : '#a0743c'}"/></g>`;
   }
   b += grainRect;
   return svg(b, defs);
