@@ -586,6 +586,30 @@
           ]
         },
         {
+          "slug": "tahini-bulk-bucket",
+          "placeholder": false,
+          "name": "Tahini Sesame Dressing, Bulk Bucket",
+          "nameAr": "طحينة السمسم",
+          "subcategory": "tahini",
+          "sizes": [
+            "18 kg (39.7 lb) bucket"
+          ],
+          "shortDescription": "",
+          "ingredients": "",
+          "allergens": [],
+          "storage": "",
+          "badges": [],
+          "countryOfOrigin": "Lebanon",
+          "trade": {
+            "upc": "",
+            "casePack": "",
+            "shelfLife": ""
+          },
+          "images": [
+            "/images/products/photos/tahini-bulk-bucket.webp"
+          ]
+        },
+        {
           "slug": "olive-oil-blend",
           "placeholder": true,
           "name": "Olive Oil Blend",

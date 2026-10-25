@@ -82,6 +82,7 @@ const details: Record<string, [string, string[]]> = {
   'olive-oil-blend': ['A lighter olive oil blend for everyday cooking.', ['Sauté vegetables', 'Roast potatoes', 'Fry falafel']],
   'black-olives': ['Ripe black olives with a soft texture and rich flavor.', ['Serve at breakfast', 'Add to pizza and man’oushe', 'Snack with cheese']],
   tahini: ['Smooth sesame tahini, the base of hummus, tarator and countless Mediterranean dressings.', ['Make hummus and baba ghanouj', 'Whisk into tarator sauce', 'Drizzle over roasted vegetables']],
+  'tahini-bulk-bucket': ['Our 100% pure ground sesame tahini in an 18 kg foodservice bucket, made for restaurants, bakeries and caterers.', ['Make hummus and baba ghanouj in volume', 'Whisk into tarator for shawarma and falafel', 'Bake into halawa and sweets']],
   'tomato-paste': ['Concentrated paste of sun-ripened tomatoes.', ['Start a stew', 'Flavor stuffed vegetables', 'Enrich a rice dish']],
   'sweet-pepper-paste': ['Sweet red pepper paste made from sun-ripened peppers, rich and mild.', ['Mix into muhammara', 'Spread on man’oushe', 'Marinate chicken']],
   'hot-red-pepper-paste': ['Spicy red pepper paste for those who like heat.', ['Stir into stews', 'Make a quick chili dip', 'Spice up marinades']],
